@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 let &t_ti.="\eP\e[2 q\e\\"
 let &t_SI.="\eP\e[5 q\e\\"
 let &t_EI.="\eP\e[1 q\e\\"
