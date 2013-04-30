@@ -5,17 +5,20 @@ let &t_SI.="\eP\e[5 q\e\\"
 let &t_EI.="\eP\e[1 q\e\\"
 let &t_te.="\eP\e[0 q\e\\"
 
+let &t_ti.="\e[1 q"
+let &t_SI.="\e[5 q"
+let &t_EI.="\e[1 q"
+let &t_te.="\e[0 q"
 
 set nocompatible
 set noswapfile
 
-set tabstop=2 shiftwidth=2 expandtab
+" set tabstop=2 shiftwidth=2 expandtab
 set backspace=indent,eol,start
-
-syntax on
 
 set path=.,,**
 
+set clipboard=unnamed
 set mouse=a
 set pastetoggle=<F2>
 
@@ -28,11 +31,15 @@ set incsearch
 set hlsearch
 
 set timeoutlen=500
-set smartindent
-set autoindent
+
+" Don't use smart/auto indent; the ftplugin indent is better
+" set smartindent
+" set autoindent
 
 set switchbuf=usetab " use tab if it already exists
 set wildmenu " command line completion
+
+syntax on
 
 filetype plugin indent on
 
@@ -53,5 +60,4 @@ colorscheme badwolf
 "  colorscheme vividchalk
 "else
 "endif 
-
 
