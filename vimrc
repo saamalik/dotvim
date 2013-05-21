@@ -16,7 +16,8 @@ set noswapfile
 " set tabstop=2 shiftwidth=2 expandtab
 set backspace=indent,eol,start
 
-set path=.,,**
+set path=.,** " . - file path, ** all files inside current directory
+set wildignore=*/target/*
 
 set clipboard=unnamed
 set mouse=a
@@ -30,7 +31,19 @@ set number " Line numbers
 set incsearch
 set hlsearch
 
+set ignorecase " make searches case-insensitive, unless they contain upper-case letters:
+set smartcase
+
+set enc=utf-8  " UTF-8 Default encoding
+
 set timeoutlen=500
+
+set titlestring=%f title    " Display filename in terminal window
+set rulerformat=%l:%c ruler " Display current column/line
+set showcmd                 " Show commands at bottom right
+set splitbelow              " Split windows BELOW current window!
+set winminheight=0          " Window minimum height
+set scrolloff=8             " always have at least 8 lines before the window's bottom
 
 " Don't use smart/auto indent; the ftplugin indent is better
 " set smartindent
