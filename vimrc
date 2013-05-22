@@ -28,6 +28,9 @@ set number " Line numbers
 "
 " set t_Co=256
 
+set laststatus=2 " show the status line always
+set noshowmode   " Hide insert / update status line
+
 set incsearch
 set hlsearch
 
@@ -44,6 +47,7 @@ set showcmd                 " Show commands at bottom right
 set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
 set scrolloff=8             " always have at least 8 lines before the window's bottom
+
 
 " Don't use smart/auto indent; the ftplugin indent is better
 " set smartindent
