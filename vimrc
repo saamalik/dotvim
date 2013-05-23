@@ -31,6 +31,9 @@ set pastetoggle=<F2>
 
 set ruler " Line and col bottom right
 set number " Line numbers
+
+set hidden " Allow buffers dirty
+
 "
 " set t_Co=256
 
