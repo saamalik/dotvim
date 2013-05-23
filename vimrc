@@ -25,9 +25,9 @@ set backspace=indent,eol,start
 set path=.,** " . - file path, ** all files inside current directory
 set wildignore+=*/target/*,*.class
 
-set clipboard=unnamed
 set mouse=a
 set pastetoggle=<F2>
+set clipboard=unnamed
 
 set ruler " Line and col bottom right
 set number " Line numbers
@@ -69,6 +69,9 @@ syntax on
 filetype plugin indent on
 
 colorscheme badwolf
+
+" Clear screen (ctrl+shift) since ctrl+l bound to window
+noremap  <C-l>
 
 " Save file
 map <C-s> :write<CR>
