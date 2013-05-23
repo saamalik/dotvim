@@ -11,6 +11,7 @@ let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
 let mapleader = ","
+let g:Powerline_symbols = "fancy"
 
 set nocompatible
 set noswapfile
@@ -42,9 +43,9 @@ set hlsearch
 set ignorecase " make searches case-insensitive, unless they contain upper-case letters:
 set smartcase
 
-set enc=utf-8  " UTF-8 Default encoding
+set encoding=utf-8  " UTF-8 Default encoding
 
-set timeoutlen=300
+set timeoutlen=500
 
 set titlestring=%f title    " Display filename in terminal window
 set rulerformat=%l:%c ruler " Display current column/line
