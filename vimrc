@@ -66,6 +66,9 @@ filetype plugin indent on
 
 colorscheme badwolf
 
+" CtrlP Buffer <Ctrl-Shift-P>
+noremap  :CtrlPBuffer<CR>
+
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
 
