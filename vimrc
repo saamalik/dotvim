@@ -10,10 +10,6 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-" Key mapping to works cygwin
-set <A-j>=j
-set <A-k>=k
-
 let mapleader = ","
 
 set nocompatible
@@ -48,7 +44,7 @@ set smartcase
 
 set enc=utf-8  " UTF-8 Default encoding
 
-set timeoutlen=100
+set timeoutlen=300
 
 set titlestring=%f title    " Display filename in terminal window
 set rulerformat=%l:%c ruler " Display current column/line
@@ -84,6 +80,9 @@ noremap <space> <c-d>
 vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
 vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 
+" NerdTree
+noremap <leader>n :NERDTreeToggle<cr>
+
 " Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -91,12 +90,13 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+" Using Ctrl+Shift-J, and Ctrl+Shift-K
+nnoremap  :m .+1<CR>==
+nnoremap  :m .-2<CR>==
+inoremap  <Esc>:m .+1<CR>==gi
+inoremap  <Esc>:m .-2<CR>==gi
+vnoremap  :m '>+1<CR>gv=gv
+vnoremap  :m '<-2<CR>gv=gv
 
 " ruby
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
