@@ -1,9 +1,10 @@
 execute pathogen#infect()
 
-let &t_ti.="\eP\e[2 q\e\\"
-let &t_SI.="\eP\e[5 q\e\\"
-let &t_EI.="\eP\e[1 q\e\\"
-let &t_te.="\eP\e[0 q\e\\"
+" Mode independent cursors for vim
+"let &t_ti.="\eP\e[2 q\e\\"
+"let &t_SI.="\eP\e[5 q\e\\"
+"let &t_EI.="\eP\e[1 q\e\\"
+"let &t_te.="\eP\e[0 q\e\\"
 
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
@@ -11,7 +12,13 @@ let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
 let mapleader = ","
-let g:Powerline_symbols = "fancy"
+let Powerline_symbols = "fancy"
+let gitgutter_eager = 0
+
+colorscheme badwolf
+highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
+highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
+highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=233
 
 set nocompatible
 set noswapfile
@@ -29,9 +36,12 @@ set clipboard=unnamed
 set ruler " Line and col bottom right
 set number " Line numbers
 
+set showmatch " Show matching brackets
+
 set hidden " Allow buffers dirty
 
-"
+" Set color to 256
+" Not necessary anymore--configure mintty to change term to 256 color
 " set t_Co=256
 
 set laststatus=2 " show the status line always
@@ -48,7 +58,7 @@ set encoding=utf-8  " UTF-8 Default encoding
 set timeoutlen=500
 
 set titlestring=%f title    " Display filename in terminal window
-set rulerformat=%l:%c ruler " Display current column/line
+set rulerformat=%l:%c ruler " Display current column/line (if powerline not working)
 set showcmd                 " Show commands at bottom right
 set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
@@ -65,10 +75,23 @@ set wildmenu " command line completion
 syntax on
 filetype plugin indent on
 
-colorscheme badwolf
+" Gdiff disable diff
+command! Gdiffoff diffoff | q | Gedit
 
 " CtrlP Buffer <Ctrl-Shift-P>
 noremap  :CtrlPBuffer<CR>
+
+" nnoremap <leader>n :set noai<cr>
+" nnoremap <leader>m :set ai<cr>
+nnoremap <leader>/ :nohlsearch<cr>
+nnoremap <leader>t :tabnew<cr>:e
+nnoremap <leader>w :tabclose<cr>
+nnoremap <leader><space> :NERDTreeToggle<cr>
+nnoremap <leader>rr :set relativenumber<cr>
+nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
+nnoremap <leader>bn :bnext<cr>
+nnoremap <leader>bp :bprev<cr>
+nnoremap <leader>bc :bprev<cr>:bdelete #<cr>
 
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
@@ -84,14 +107,18 @@ noremap <space> <c-d>
 vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
 vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 
-" NerdTree
-noremap <leader>n :NERDTreeToggle<cr>
-
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
+
+" Let's try these
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-N> <C-W>w<C-W>_
 
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
