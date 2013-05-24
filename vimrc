@@ -11,9 +11,10 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-let mapleader = ","
-let Powerline_symbols = "fancy"
-let gitgutter_eager = 0
+let g:mapleader = ","
+let g:Powerline_symbols = "fancy"
+let g:gitgutter_eager = 0
+let g:ctrlp_working_path_mode = 0
 
 colorscheme badwolf
 highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
@@ -91,7 +92,7 @@ nnoremap <leader>rr :set relativenumber<cr>
 nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
 nnoremap <leader>bn :bnext<cr>
 nnoremap <leader>bp :bprev<cr>
-nnoremap <leader>bc :bprev<cr>:bdelete #<cr>
+nnoremap <leader>bd :bprev<cr>:bdelete #<cr>
 
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
