@@ -14,7 +14,44 @@ let &t_te.="\e[0 q"
 let g:mapleader = ","
 let g:Powerline_symbols = "fancy"
 let g:gitgutter_eager = 0
-let g:ctrlp_working_path_mode = 0
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_signs=1    " Put errors on left side
+
+"CtrlP
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>F :CtrlPCurFile<CR>
+nnoremap <leader>B :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMixed<CR>
+nnoremap <leader>M :CtrlPMRUFiles<CR>
+nnoremap <leader>t :CtrlPTag<CR>
+nnoremap <leader>T :CtrlPBufTag<CR>
+nnoremap <leader>l :CtrlPLine<CR>
+let g:ctrlp_extensions          = ['tag', 'line']
+let g:ctrlp_mruf_max            = 25
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_by_filename         = 1
+let g:ctrlp_open_new_file       = 'r'
+let g:ctrlp_open_multiple_files = '3hjr'
+let g:ctrlp_root_markers        = ['tags']
+let g:ctrlp_working_path_mode   = 0
+let g:ctrlp_buftag_types        = {
+  \ 'css'        : '--language-force=css --css-types=citm',
+  \ 'javascript' : '--language-force=javascript --javascript-types=fv',
+  \ 'haxe'       : '--language-force=haxe --haxe-types=fvpcit'
+  \ }
+
+" Syntastic
+let g:syntastic_check_on_open       = 0
+let g:syntastic_enable_balloons     = 0
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_auto_jump           = 1
+let g:syntastic_auto_loc_list       = 1
+let g:syntastic_enable_signs        = 1
+let g:syntastic_mode_map            = {
+  \ 'mode': 'active',
+  \ 'active_filetypes': ['javascript'],
+  \ 'passive_filetypes':['css', 'python', 'html', 'php']
+  \ }
 
 colorscheme badwolf
 highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
@@ -70,8 +107,10 @@ set winminheight=0          " Window minimum height
 " set smartindent
 " set autoindent
 
-set switchbuf=usetab " use tab if it already exists
+set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
+
+set tags=./tags,tags
 
 syntax on
 filetype plugin indent on
