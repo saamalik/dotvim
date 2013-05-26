@@ -124,8 +124,6 @@ noremap  :CtrlPBuffer<CR>
 " nnoremap <leader>n :set noai<cr>
 " nnoremap <leader>m :set ai<cr>
 nnoremap <leader>/ :nohlsearch<cr>
-nnoremap <leader>t :tabnew<cr>:e
-nnoremap <leader>w :tabclose<cr>
 nnoremap <leader><space> :NERDTreeToggle<cr>
 nnoremap <leader>rr :set relativenumber<cr>
 nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
