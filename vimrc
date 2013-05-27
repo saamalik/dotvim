@@ -134,6 +134,9 @@ nnoremap <leader>bd :bprev<cr>:bdelete #<cr>
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
 
+" Make Y consistent with D and C
+nnoremap Y y$
+
 " Save file
 map <C-s> :write<CR>
 map! <C-s> <Esc>:write<CR>
