@@ -53,10 +53,21 @@ let g:syntastic_mode_map            = {
   \ 'passive_filetypes':['css', 'python', 'html', 'php']
   \ }
 
-colorscheme badwolf
-highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
-highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
-highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=233
+syntax on
+filetype plugin indent on
+
+"colorscheme badwolf
+
+"let g:solarized_termtrans=1
+"let g:solarized_termcolors=256 " set this if no solarized pallete
+set background=dark
+colorscheme solarized
+call togglebg#map("<F5>")
+
+
+"highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
+"highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
+"highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=233
 
 set nocompatible
 set noswapfile
@@ -111,9 +122,6 @@ set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
 
 set tags=./tags,tags
-
-syntax on
-filetype plugin indent on
 
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
