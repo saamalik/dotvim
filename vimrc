@@ -1,15 +1,10 @@
 execute pathogen#infect()
 
-" Mode independent cursors for vim
-"let &t_ti.="\eP\e[2 q\e\\"
-"let &t_SI.="\eP\e[5 q\e\\"
-"let &t_EI.="\eP\e[1 q\e\\"
-"let &t_te.="\eP\e[0 q\e\\"
-
+"Mode dependent cursors for vim
 let &t_ti.="\e[1 q"
+let &t_te.="\e[0 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
-let &t_te.="\e[5 q"
 
 let g:mapleader = ","
 let g:Powerline_symbols = "fancy"
