@@ -104,7 +104,7 @@ set timeoutlen=500
 set titlestring=%f title    " Display filename in terminal window
 set rulerformat=%l:%c ruler " Display current column/line (if powerline not working)
 set showcmd                 " Show commands at bottom right
-set splitbelow              " Split windows BELOW current window!
+" set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
 " set scrolloff=8             " always have at least 8 lines before the window's bottom
 
