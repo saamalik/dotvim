@@ -1,4 +1,5 @@
 execute pathogen#infect()
+execute pathogen#helptags()
 
 "Mode dependent cursors for vim
 let &t_ti.="\e[1 q"
@@ -130,8 +131,7 @@ nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader><space> :NERDTreeToggle<cr>
 nnoremap <leader>rr :set relativenumber<cr>
 nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
-nnoremap <leader>bn :bnext<cr>
-nnoremap <leader>bp :bprev<cr>
+nnoremap <leader>rN :set nonumber<cr>
 nnoremap <leader>bd :bprev<cr>:bdelete #<cr>
 
 " Clear screen (ctrl+shift) since ctrl+l bound to window
