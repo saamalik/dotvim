@@ -1,5 +1,26 @@
-execute pathogen#infect()
-execute pathogen#helptags()
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'airblade/vim-gitgutter'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'henrik/vim-qargs'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
+
+syntax on
+filetype plugin indent on
 
 "Mode dependent cursors for vim
 let &t_ti.="\e[1 q"
@@ -49,9 +70,6 @@ let g:syntastic_mode_map            = {
   \ 'passive_filetypes':['css', 'python', 'html', 'php']
   \ }
 
-syntax on
-filetype plugin indent on
-
 "colorscheme badwolf
 
 "let g:solarized_termtrans=1
@@ -65,7 +83,6 @@ call togglebg#map("<F5>")
 "highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
 "highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=233
 
-set nocompatible
 set noswapfile
 
 " set tabstop=2 shiftwidth=2 expandtab
