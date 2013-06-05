@@ -8,6 +8,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'airblade/vim-gitgutter'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'elzr/vim-json'
 Bundle 'henrik/vim-qargs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
@@ -19,6 +20,10 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 
+" Ruby blocks
+" Bundle 'jgdavey/vim-blockle'
+"
+"
 syntax on
 filetype plugin indent on
 
@@ -154,8 +159,12 @@ nnoremap <leader>bd :bprev<cr>:bdelete #<cr>
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
 
+" Ctrl + Shift + Enter adds new line
+" map <C-2> A<CR><ESC>
+
 " Make Y consistent with D and C
 nnoremap Y y$
+
 
 " Save file
 map <C-s> :write<CR>

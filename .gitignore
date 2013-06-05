@@ -1,1 +1,4 @@
-/.netrwhist
+.netrwhist
+.DS_Store
+tags
+bundle/*
