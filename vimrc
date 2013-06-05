@@ -151,18 +151,11 @@ noremap <space> <c-d>
 vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
 vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 
-" Smart way to move between windows
-" map <C-j> <C-W>j
-" map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
-
-" Let's try these
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-H> <C-W>h<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-N> <C-W>w<C-W>_
+"Smart way to move between windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
