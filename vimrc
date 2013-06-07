@@ -10,7 +10,6 @@ Bundle 'gmarik/vundle'
 " Bundle 'elzr/vim-json'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'henrik/vim-qargs'
@@ -27,6 +26,13 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
+
+if has('unix')
+  let s:system = system('uname')
+  if s:system !~ 'CYGWIN'
+    Bundle 'Valloric/YouCompleteMe'
+  endif
+endif
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
