@@ -142,7 +142,7 @@ set smarttab      " Use shiftwidth to tab at line beginning
 set tabstop=2     " tab spacing (settings below are just to unify it)
 set softtabstop=2 " unify
 set shiftwidth=2  " unify
-set expandtab     " Give me spaces or give me death
+set noexpandtab   " Give me tabs or give me death
 set nowrap        " do not wrap lines
 set nrformats=    " treat all numerals as decimal
 
@@ -229,7 +229,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
-autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
+" autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
 
