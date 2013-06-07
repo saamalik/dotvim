@@ -6,35 +6,42 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'airblade/vim-gitgutter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'elzr/vim-json'
-Bundle 'henrik/vim-qargs'
-Bundle 'kien/ctrlp.vim'
+" Bundle 'MarcWeber/ultisnips'
+" Bundle 'elzr/vim-json'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'henrik/vim-qargs'
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'juvenn/mustache.vim'
+Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tsaleh/vim-matchit.git'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
-"
-"
+
 syntax on
 filetype plugin indent on
 
-"Mode dependent cursors for vim
+" Mode dependent cursors for vim
 let &t_ti.="\e[1 q"
 let &t_te.="\e[0 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 
 let g:mapleader = ","
-let g:Powerline_symbols = "fancy"
+let g:Powerline_symbols = "compatible"
 let g:gitgutter_eager = 0
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1    " Put errors on left side
@@ -42,7 +49,7 @@ let g:syntastic_enable_signs=1    " Put errors on left side
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPCurFile<CR>
-nnoremap <leader>B :CtrlPBuffer<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMixed<CR>
 nnoremap <leader>M :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>
@@ -83,6 +90,7 @@ set background=dark
 colorscheme solarized
 call togglebg#map("<F5>")
 
+nnoremap    <F3> :setlocal listchars=tab:>-,trail:-,eol:$ list! list?<CR>
 
 "highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
 "highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
@@ -120,6 +128,19 @@ set hlsearch
 set ignorecase " make searches case-insensitive, unless they contain upper-case letters:
 set smartcase
 
+" Text Formatting/Layout
+set fo=tcrqn      " See Help (complex)
+set autoindent    " autoindent
+set smartindent   " smartindent
+set smarttab      " Use shiftwidth to tab at line beginning
+set tabstop=2     " tab spacing (settings below are just to unify it)
+set softtabstop=2 " unify
+set shiftwidth=2  " unify
+set expandtab     " Give me spaces or give me death
+set nowrap        " do not wrap lines
+set nrformats=    " treat all numerals as decimal
+
+
 set encoding=utf-8  " UTF-8 Default encoding
 
 set timeoutlen=500
@@ -140,6 +161,7 @@ set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
 
 set tags=./tags,tags
+set suffixesadd+=.html
 
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
@@ -154,13 +176,13 @@ nnoremap <leader><space> :NERDTreeToggle<cr>
 nnoremap <leader>rr :set relativenumber<cr>
 nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
 nnoremap <leader>rN :set nonumber<cr>
-nnoremap <leader>bd :bprev<cr>:bdelete #<cr>
+nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
 " Clear screen (ctrl+shift) since ctrl+l bound to window
 noremap  <C-l>
 
-" Ctrl + Shift + Enter adds new line
-" map <C-2> A<CR><ESC>
+" Ctrl + Shift + Enter moves to end of line
+noremap!  <C-o>A
 
 " Make Y consistent with D and C
 nnoremap Y y$
@@ -183,6 +205,9 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = 'b'
+
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
 nnoremap  :m .+1<CR>==
@@ -197,3 +222,10 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+autocmd Filetype html setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype ruby setlocal ts=2 sw=2 sts=0 expandtab
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab
+
+" Set handlebars template directory as mustache
+autocmd BufRead,BufNewFile */templates/* set syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim
