@@ -152,7 +152,6 @@ set noexpandtab   " Give me tabs or give me death
 set nowrap        " do not wrap lines
 set nrformats=    " treat all numerals as decimal
 
-
 set encoding=utf-8  " UTF-8 Default encoding
 
 set timeoutlen=500
@@ -163,11 +162,6 @@ set showcmd                 " Show commands at bottom right
 " set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
 " set scrolloff=8             " always have at least 8 lines before the window's bottom
-
-
-" Don't use smart/auto indent; the ftplugin indent is better
-" set smartindent
-" set autoindent
 
 set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
@@ -180,9 +174,6 @@ set spelllang=en_us
 
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
-
-" CtrlP Buffer <Ctrl-Shift-P>
-noremap  :CtrlPBuffer<CR>
 
 " nnoremap <leader>n :set noai<cr>
 " nnoremap <leader>m :set ai<cr>
