@@ -1,6 +1,7 @@
 set nocompatible
 filetype off
 
+" set rtp+=~/.vim/bundle/vundle/,~/.vim/bundle/powerline/powerline/bindings/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -10,6 +11,7 @@ Bundle 'gmarik/vundle'
 " Bundle 'elzr/vim-json'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'henrik/vim-qargs'
@@ -26,6 +28,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
+Bundle 'mikewest/vimroom'
 
 if has('unix')
   let s:system = system('uname')
@@ -47,10 +50,11 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 
 let g:mapleader = ","
-let g:Powerline_symbols = "compatible"
 let g:gitgutter_eager = 0
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_signs=1    " Put errors on left side
+
+let g:vimroom_sidebar_height = 0
 
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
@@ -126,16 +130,18 @@ set hidden " Allow buffers dirty
 " set t_Co=256
 
 set laststatus=2 " show the status line always
-set noshowmode   " Hide insert / update status line
+" set noshowmode   " Hide insert / update status line
 
 set incsearch
 set hlsearch
 
-set ignorecase " make searches case-insensitive, unless they contain upper-case letters:
-set smartcase
+set ignorecase " make searches case-insensitive
+set smartcase  " ... unless they contain upper-case letters
+set infercase  " infer proper case when doing keyword completion
+
 
 " Text Formatting/Layout
-set fo=tcrqn      " See Help (complex)
+set formatoptions=tcrqn      " See Help (complex)
 set autoindent    " autoindent
 set smartindent   " smartindent
 set smarttab      " Use shiftwidth to tab at line beginning
@@ -168,6 +174,9 @@ set wildmenu " command line completion
 
 set tags=./tags,tags
 set suffixesadd+=.html
+
+set spellfile=~/.vim/spell/en.add
+set spelllang=en_us
 
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
