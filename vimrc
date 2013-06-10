@@ -16,7 +16,8 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'henrik/vim-qargs'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'juvenn/mustache.vim'
+" Bundle 'juvenn/mustache.vim'
+Bundle 'gilesbowkett/vim-handlebars'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'pangloss/vim-javascript'
@@ -231,4 +232,4 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Set handlebars template directory as mustache
-autocmd BufRead,BufNewFile */templates/* set syntax=mustache | runtime! ftplugin/mustache.vim ftplugin/mustache*.vim
+autocmd BufRead,BufNewFile */templates/* set syntax=handlebars | runtime! ftplugin/handlebars.vim
