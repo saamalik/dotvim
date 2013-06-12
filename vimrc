@@ -52,8 +52,6 @@ let &t_EI.="\e[1 q"
 
 let g:mapleader = ","
 let g:gitgutter_eager = 0
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_signs=1    " Put errors on left side
 
 let g:vimroom_sidebar_height = 0
 
@@ -71,7 +69,8 @@ let g:ctrlp_mruf_max            = 25
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_by_filename         = 1
 let g:ctrlp_open_new_file       = 'r'
-let g:ctrlp_open_multiple_files = '3hjr'
+let g:ctrlp_open_multiple_files = '3hjr' " three h rest hidden
+let g:ctrlp_arg_map             = 1      " prompt for multi open
 let g:ctrlp_root_markers        = ['tags']
 let g:ctrlp_working_path_mode   = 0
 let g:ctrlp_buftag_types        = {
@@ -81,12 +80,12 @@ let g:ctrlp_buftag_types        = {
   \ }
 
 " Syntastic
-let g:syntastic_check_on_open       = 0
-let g:syntastic_enable_balloons     = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_auto_jump           = 1
-let g:syntastic_auto_loc_list       = 1
-let g:syntastic_enable_signs        = 1
+let g:syntastic_check_on_open       = 0 " disable on buffer start
+let g:syntastic_enable_balloons     = 0 " disable mouse hover
+let g:syntastic_enable_highlighting = 0 " disable highlighting based on syntax
+let g:syntastic_auto_jump           = 0 " disable jumping to first error
+let g:syntastic_auto_loc_list       = 2 " don't auto start the loc list
+let g:syntastic_enable_signs        = 1 " show signs on the left side
 let g:syntastic_mode_map            = {
   \ 'mode': 'active',
   \ 'active_filetypes': ['javascript'],
@@ -100,12 +99,6 @@ let g:syntastic_mode_map            = {
 set background=dark
 colorscheme solarized
 call togglebg#map("<F5>")
-
-nnoremap    <F3> :setlocal listchars=tab:>-,trail:-,eol:$ list! list?<CR>
-
-"highlight GitGutterAdd guifg=#009900 guibg=NONE ctermfg=2 ctermbg=233
-"highlight GitGutterChange guifg=#bbbb00 guibg=NONE ctermfg=3 ctermbg=233
-"highlight GitGutterDelete guifg=#ff2222 guibg=NONE ctermfg=1 ctermbg=233
 
 set noswapfile
 
@@ -140,7 +133,6 @@ set ignorecase " make searches case-insensitive
 set smartcase  " ... unless they contain upper-case letters
 set infercase  " infer proper case when doing keyword completion
 
-
 " Text Formatting/Layout
 set formatoptions=tcrqn      " See Help (complex)
 set autoindent    " autoindent
@@ -152,6 +144,7 @@ set shiftwidth=2  " unify
 set noexpandtab   " Give me tabs or give me death
 set nowrap        " do not wrap lines
 set nrformats=    " treat all numerals as decimal
+set listchars=tab:>-,trail:-,eol:$
 
 set encoding=utf-8  " UTF-8 Default encoding
 
@@ -162,7 +155,7 @@ set rulerformat=%l:%c ruler " Display current column/line (if powerline not work
 set showcmd                 " Show commands at bottom right
 " set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
-" set scrolloff=8             " always have at least 8 lines before the window's bottom
+set scrolloff=5             " always have at least 8 lines before the window's bottom
 
 set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
@@ -176,14 +169,9 @@ set spelllang=en_us
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
 
-" nnoremap <leader>n :set noai<cr>
-" nnoremap <leader>m :set ai<cr>
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader><space> :NERDTreeFind<cr>
 nnoremap <F4> :NERDTreeToggle<cr>
-nnoremap <leader>rr :set relativenumber<cr>
-nnoremap <leader>rn :set number<cr>:set norelativenumber<cr>
-nnoremap <leader>rN :set nonumber<cr>
 nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
 " Clear screen (ctrl+shift) since ctrl+l bound to window
