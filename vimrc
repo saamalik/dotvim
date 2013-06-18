@@ -32,6 +32,7 @@ Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mikewest/vimroom'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'fholgado/minibufexpl.vim'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
