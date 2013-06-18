@@ -31,13 +31,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mikewest/vimroom'
 Bundle 'Valloric/ListToggle'
-
-if has('unix')
-  let s:system = system('uname')
-  if s:system !~ 'CYGWIN'
-    Bundle 'Valloric/YouCompleteMe'
-  endif
-endif
+Bundle 'Valloric/YouCompleteMe'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
