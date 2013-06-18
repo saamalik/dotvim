@@ -30,6 +30,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mikewest/vimroom'
+Bundle 'Valloric/ListToggle'
 
 if has('unix')
   let s:system = system('uname')
@@ -63,7 +64,7 @@ nnoremap <leader>m :CtrlPMixed<CR>
 nnoremap <leader>M :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlPTag<CR>
 nnoremap <leader>T :CtrlPBufTag<CR>
-nnoremap <leader>l :CtrlPLine<CR>
+nnoremap <leader>L :CtrlPLine<CR>
 let g:ctrlp_extensions          = ['tag', 'line']
 let g:ctrlp_mruf_max            = 25
 let g:ctrlp_clear_cache_on_exit = 0
