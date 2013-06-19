@@ -51,6 +51,8 @@ let g:gitgutter_eager = 0
 
 let g:vimroom_sidebar_height = 0
 
+let g:ycm_key_list_select_completion = ['<Down>']
+
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPCurFile<CR>
