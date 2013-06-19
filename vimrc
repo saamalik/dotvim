@@ -57,6 +57,9 @@ let g:vimroom_sidebar_height = 0
 let g:ycm_key_list_select_completion = ['<Down>']
 
 let g:svndiff_autoupdate = 1
+
+let g:miniBufExplBuffersNeeded = 1
+
 nnoremap ]h :call Svndiff("next")<CR>
 nnoremap [h :call Svndiff("prev")<CR>
 
@@ -173,6 +176,9 @@ set spelllang=en_us
 
 " Gdiff disable diff
 command! Gdiffoff diffoff | q | Gedit
+
+" Svn status
+command! Svnstatus cexpr system("svn status \| awk 'BEGIN { OFS = \":\"  } {print $2,1,$1}'")
 
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader><space> :NERDTreeFind<cr>
