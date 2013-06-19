@@ -9,14 +9,15 @@ Bundle 'gmarik/vundle'
 
 " Bundle 'MarcWeber/ultisnips'
 " Bundle 'elzr/vim-json'
+" Bundle 'Lokaltog/powerline'
+" Bundle 'juvenn/mustache.vim'
+" Bundle 'airblade/vim-gitgutter'
+
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
-" Bundle 'Lokaltog/powerline'
-Bundle 'airblade/vim-gitgutter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'henrik/vim-qargs'
 Bundle 'jiangmiao/auto-pairs'
-" Bundle 'juvenn/mustache.vim'
 Bundle 'gilesbowkett/vim-handlebars'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -33,6 +34,8 @@ Bundle 'mikewest/vimroom'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'fholgado/minibufexpl.vim'
+Bundle 'vcscommand.vim'
+Bundle 'svndiff'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
@@ -52,6 +55,10 @@ let g:gitgutter_eager = 0
 let g:vimroom_sidebar_height = 0
 
 let g:ycm_key_list_select_completion = ['<Down>']
+
+let g:svndiff_autoupdate = 1
+nnoremap ]h :call Svndiff("next")<CR>
+nnoremap [h :call Svndiff("prev")<CR>
 
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
