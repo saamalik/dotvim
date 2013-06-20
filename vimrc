@@ -33,7 +33,7 @@ Bundle 'tsaleh/vim-matchit.git'
 Bundle 'mikewest/vimroom'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'fholgado/minibufexpl.vim'
+Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'vcscommand.vim'
 Bundle 'svndiff'
 
@@ -117,6 +117,12 @@ set path=.,** " . - file path, ** all files inside current directory
 set wildignore+=*/target/*,*.class
 
 set mouse=a
+
+if &term =~ '^screen'
+	" tmux knows the extended mouse mode
+	set ttymouse=xterm2
+endif
+
 set pastetoggle=<F2>
 set clipboard=unnamed
 
