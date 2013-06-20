@@ -59,6 +59,7 @@ let g:ycm_key_list_select_completion = ['<Down>']
 let g:svndiff_autoupdate = 1
 
 let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplUseSingleClick = 1
 
 nnoremap ]h :call Svndiff("next")<CR>
 nnoremap [h :call Svndiff("prev")<CR>
