@@ -36,6 +36,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'vcscommand.vim'
 Bundle 'svndiff'
+Bundle 'tpope/vim-ragtag'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
@@ -55,6 +56,18 @@ let g:gitgutter_eager = 0
 let g:vimroom_sidebar_height = 0
 
 let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_semantic_triggers =  {
+"     \   'c' : ['->', '.'],
+"     \   'objc' : ['->', '.'],
+"     \   'ocaml' : ['.', '#'],
+"     \   'cpp,objcpp' : ['->', '.', '::'],
+"     \   'perl' : ['->'],
+"     \   'php' : ['->', '::'],
+"     \   'cs,java,javascript,d,vim,ruby,python,perl6,scala,vb,elixir,go' : ['.'],
+"     \   'lua' : ['.', ':'],
+"     \   'erlang' : [':'],
+"     \   'html' : ['<', '</'],
+"     \ }
 
 let g:svndiff_autoupdate = 1
 
@@ -106,7 +119,8 @@ let g:syntastic_mode_map            = {
 "let g:solarized_termtrans=1
 "let g:solarized_termcolors=256 " set this if no solarized pallete
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme mustang
 call togglebg#map("<F5>")
 
 set noswapfile
