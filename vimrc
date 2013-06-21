@@ -77,6 +77,10 @@ let g:miniBufExplUseSingleClick = 1
 nnoremap ]h :call Svndiff("next")<CR>
 nnoremap [h :call Svndiff("prev")<CR>
 
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPCurFile<CR>
