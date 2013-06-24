@@ -191,7 +191,7 @@ set rulerformat=%l:%c ruler " Display current column/line (if powerline not work
 set showcmd                 " Show commands at bottom right
 " set splitbelow              " Split windows BELOW current window!
 set winminheight=0          " Window minimum height
-set scrolloff=5             " always have at least 8 lines before the window's bottom
+set scrolloff=3             " always have at least 8 lines before the window's bottom
 
 set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
@@ -213,7 +213,7 @@ nnoremap <leader><space> :NERDTreeFind<cr>
 nnoremap <F4> :NERDTreeToggle<cr>
 nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
-" Clear screen (ctrl+shift) since ctrl+l bound to window
+" Clear screen (ctrl+shift) since ctrl+l bound to move window right
 noremap  <C-l>
 
 " Ctrl + Shift + Enter moves to end of line
@@ -222,23 +222,33 @@ noremap!  <C-o>A
 " Make Y consistent with D and C
 nnoremap Y y$
 
+" Start / End of braces {  }
+map [[ ?{<CR>w99[{
+map ]] /}<CR>b99]}
+map ][ j0[[%/{<CR>
+map [] k$]]%?}<CR>
 
 " Save file
 map <C-s> :write<CR>
 map! <C-s> <Esc>:write<CR>
 
 " Scrolling
-noremap <space> <c-d>
+" noremap <space> <c-d>
+
 
 " Visual search
 vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
 vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 
 "Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
+
+" Smart way to scroll
+map <C-J> <C-E>
+map <C-K> <C-Y>
 
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = 'b'
