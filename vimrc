@@ -37,7 +37,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'vcscommand.vim'
 Bundle 'svndiff'
 Bundle 'tpope/vim-ragtag'
-Bundle 'boazy/ZoomWin'
+" Bundle 'boazy/ZoomWin'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
@@ -72,7 +72,7 @@ let g:ycm_key_list_select_completion = ['<Down>']
 
 let g:svndiff_autoupdate = 1
 
-let g:miniBufExplBuffersNeeded = 1
+" let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplUseSingleClick = 1
 
 nnoremap ]h :call Svndiff("next")<CR>
