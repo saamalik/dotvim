@@ -37,6 +37,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'vcscommand.vim'
 Bundle 'svndiff'
 Bundle 'tpope/vim-ragtag'
+Bundle 'boazy/ZoomWin'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
@@ -243,12 +244,12 @@ vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 "Smart way to move between windows
 " map <C-j> <C-W>j
 " map <C-k> <C-W>k
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
+map <C-h> <C-w>h
+map <C-l> <C-w>l
 
 " Smart way to scroll
-map <C-J> <C-E>
-map <C-K> <C-Y>
+map <C-j> <C-e>
+map <C-k> <C-y>
 
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = 'b'
