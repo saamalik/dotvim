@@ -211,6 +211,7 @@ command! Svnstatus cexpr system("svn status \| awk 'BEGIN { OFS = \":\"  } {prin
 
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader><space> :NERDTreeFind<cr>
+nnoremap <F3> :MBEToggle<cr>
 nnoremap <F4> :NERDTreeToggle<cr>
 nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
