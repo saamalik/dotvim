@@ -69,4 +69,3 @@
     "smarttabs"     : true,   // Tolerate mixed spaces and tabs for alignment
     "white"         : false    // Check against strict whitespace and indentation rules.
 }
-
