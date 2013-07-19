@@ -194,6 +194,7 @@ set showcmd                 " Show commands at bottom right
 set winminheight=0          " Window minimum height
 set scrolloff=3             " always have at least 8 lines before the window's bottom
 
+set splitright							" split to right and bottom
 set switchbuf=useopen,usetab " use tab if it already exists
 set wildmenu " command line completion
 
