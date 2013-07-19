@@ -1,4 +1,4 @@
-Transparency=4
+Transparency=medium
 Locale=en_US
 Charset=UTF-8
 CopyOnSelect=yes
@@ -17,7 +17,6 @@ FontIsBold=no
 FontSmoothing=full
 OpaqueWhenFocused=yes
 BoldAsColour=yes
-Black=7,54,66
 Black=50,50,50
 Red=220,50,47
 Green=133,153,0
