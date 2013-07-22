@@ -235,9 +235,9 @@ map [] k$]]%?}<CR>
 map <C-s> :write<CR>
 map! <C-s> <Esc>:write<CR>
 
-" Scrolling
-" noremap <space> <c-d>
-
+" Replace fs with . (useful in js)
+cnoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
+inoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
 
 " Visual search
 vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
