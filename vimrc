@@ -11,13 +11,13 @@ Bundle 'gmarik/vundle'
 " Bundle 'elzr/vim-json'
 " Bundle 'Lokaltog/powerline'
 " Bundle 'juvenn/mustache.vim'
-" Bundle 'airblade/vim-gitgutter'
+" Bundle 'boazy/ZoomWin'
+" Bundle 'jiangmiao/auto-pairs'
 
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'henrik/vim-qargs'
-Bundle 'jiangmiao/auto-pairs'
 Bundle 'gilesbowkett/vim-handlebars'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -34,10 +34,9 @@ Bundle 'mikewest/vimroom'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'techlivezheng/vim-plugin-minibufexpl'
-Bundle 'vcscommand.vim'
-Bundle 'svndiff'
 Bundle 'tpope/vim-ragtag'
-" Bundle 'boazy/ZoomWin'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'Raimondi/delimitMate'
 
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
@@ -56,6 +55,9 @@ let g:gitgutter_eager = 0
 
 let g:vimroom_sidebar_height = 0
 
+let delimitMate_jump_expansion = 1 " jump to closing brace 
+let delimitMate_expand_cr = 1			 " expand on enter 
+
 let g:ycm_key_list_select_completion = ['<Down>']
 " let g:ycm_semantic_triggers =  {
 "     \   'c' : ['->', '.'],
@@ -70,13 +72,8 @@ let g:ycm_key_list_select_completion = ['<Down>']
 "     \   'html' : ['<', '</'],
 "     \ }
 
-let g:svndiff_autoupdate = 1
-
 " let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplUseSingleClick = 1
-
-nnoremap ]h :call Svndiff("next")<CR>
-nnoremap [h :call Svndiff("prev")<CR>
 
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
