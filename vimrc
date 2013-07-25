@@ -12,8 +12,9 @@ Bundle 'gmarik/vundle'
 " Bundle 'Lokaltog/powerline'
 " Bundle 'juvenn/mustache.vim'
 " Bundle 'boazy/ZoomWin'
-" Bundle 'jiangmiao/auto-pairs'
+" Bundle 'marijnh/tern_for_vim'
 
+Bundle 'mhinz/vim-startify'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'altercation/vim-colors-solarized'
@@ -37,7 +38,7 @@ Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'tpope/vim-ragtag'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Raimondi/delimitMate'
-
+Bundle 'saamalik/mango.vim'
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
 
@@ -51,14 +52,29 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 
 let g:mapleader = ","
+
 let g:gitgutter_eager = 0
+
+let g:startify_change_to_dir = 0
+let g:startify_custom_header = [
+			\ '   _____                 _ ',
+			\ '  / ____|               | |',
+			\ ' | (___   __ _  __ _  __| |',
+			\ '  \___ \ / _` |/ _` |/ _` |',
+			\ '  ____) | (_| | (_| | (_| |',
+			\ ' |_____/ \__,_|\__,_|\__,_|',
+			\ ]
+
+" let g:tern#command = ["node", "C:/cygwin/home/saamalik/.vim/bundle/tern_for_vim/node_modules/tern/bin/tern"]
+" let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 let g:vimroom_sidebar_height = 0
 
-let delimitMate_jump_expansion = 1 " jump to closing brace 
-let delimitMate_expand_cr = 1			 " expand on enter 
+let g:delimitMate_jump_expansion = 1 " jump to closing brace
+let g:delimitMate_expand_cr      = 1 " expand on enter
 
 let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_collect_identifiers_from_tags_files = 1
 " let g:ycm_semantic_triggers =  {
 "     \   'c' : ['->', '.'],
 "     \   'objc' : ['->', '.'],
@@ -72,7 +88,7 @@ let g:ycm_key_list_select_completion = ['<Down>']
 "     \   'html' : ['<', '</'],
 "     \ }
 
-" let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplUseSingleClick = 1
 
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -82,16 +98,21 @@ nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> 
 nnoremap <Down> <C-E>
 nnoremap <Up> <C-Y>
 
+" Configure EasyMotion.
+let g:EasyMotion_leader_key = '<Space>'
+
 "CtrlP
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>F :CtrlPCurFile<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>m :CtrlPMixed<CR>
 nnoremap <leader>M :CtrlPMRUFiles<CR>
-nnoremap <leader>t :CtrlPTag<CR>
+" nnoremap <leader>t :CtrlPTag<CR>
+nnoremap <leader>t :CtrlPBufTagAll<CR>
 nnoremap <leader>T :CtrlPBufTag<CR>
 nnoremap <leader>L :CtrlPLine<CR>
 let g:ctrlp_extensions          = ['tag', 'line']
+let g:ctrlp_match_window        = 'max:20'
 let g:ctrlp_mruf_max            = 25
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_by_filename         = 1
@@ -102,9 +123,12 @@ let g:ctrlp_root_markers        = ['tags']
 let g:ctrlp_working_path_mode   = 0
 let g:ctrlp_buftag_types        = {
   \ 'css'        : '--language-force=css --css-types=citm',
-  \ 'javascript' : '--language-force=javascript --javascript-types=fv',
+	\ 'javascript' : '--language-force=javascript',
   \ 'haxe'       : '--language-force=haxe --haxe-types=fvpcit'
   \ }
+	" \ 'javascript' : '--language-force=js',
+	" \ 'javascript' : '--language-force=javascript',
+  " \ 'javascript' : '--language-force=javascript --javascript-types=fv',
 
 " Syntastic
 let g:syntastic_check_on_open       = 0 " disable on buffer start
@@ -125,7 +149,7 @@ let g:syntastic_mode_map            = {
 "let g:solarized_termcolors=256 " set this if no solarized pallete
 set background=dark
 " colorscheme solarized
-colorscheme mustang
+colorscheme mango
 call togglebg#map("<F5>")
 
 set noswapfile
@@ -232,7 +256,7 @@ map [] k$]]%?}<CR>
 map <C-s> :write<CR>
 map! <C-s> <Esc>:write<CR>
 
-" Replace fs with . (useful in js)
+" Current file name replace forward slashes  with . (useful in js)
 cnoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
 inoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
 
@@ -250,9 +274,6 @@ map <C-l> <C-w>l
 map <C-j> <C-e>
 map <C-k> <C-y>
 
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutBackInsert = 'b'
-
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
 nnoremap  :m .+1<CR>==
@@ -267,6 +288,9 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+" Javscript omnicomplete sucks-let YouCompleteMe defer to keywords in open buffers
+autocmd FileType javascript set omnifunc=
 
 " Set handlebars template directory as mustache
 autocmd BufRead,BufNewFile */templates/* set syntax=handlebars | runtime! ftplugin/handlebars.vim
