@@ -17,11 +17,17 @@
     "mootools"      : false,
     "dojo"          : false,
 
-    "predef"        : [  // Extra globals.
-        "google",  // Google API variable.
-        "Android",  // PhoneGap variable.
-        "define"   // requireJs
-    ],
+    "globals"        : {
+      "google" : true,
+      "Android" : true,
+      "define" : true,
+      "Ext" : true,
+      "OpenLayers" : true,
+
+      "cisco" : true,
+      "LANG_PACK" : true,
+      "API" : true
+    },
 
 
     // Development.
