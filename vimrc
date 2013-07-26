@@ -39,6 +39,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'Raimondi/delimitMate'
 Bundle 'saamalik/mango.vim'
+Bundle 'BufOnly.vim'
 " Ruby blocks
 " Bundle 'jgdavey/vim-blockle'
 
