@@ -17,7 +17,7 @@ function update_modules {
 }
 
 echo "Removing, updating and installing bundles..."
-# vim +BundleClean! +BundleInstall! +qall
+vim +BundleClean! +BundleInstall! +qall
 
 # echo "Updating NPM modules..."
 #update_modules tern_for_vim
