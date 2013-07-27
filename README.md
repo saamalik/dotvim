@@ -6,7 +6,7 @@ git clone git://github.com/saamalik/dotvim.git ~/.vim
 *RW*:  
 git clone git@github.com:saamalik/dotvim.git ~/.vim
 
-Install:
+*Install*:
 ```
 $ ./sync-bundles.sh
 ```
