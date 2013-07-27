@@ -1,9 +1,9 @@
 ## Installation
 
-RO: 
+*RO*:  
 git clone git://github.com/saamalik/dotvim.git ~/.vim
 
-RW:  
+*RW*:  
 git clone git@github.com:saamalik/dotvim.git ~/.vim
 
 Create symlinks:
