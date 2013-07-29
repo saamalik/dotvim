@@ -24,4 +24,4 @@ autocmd BufWritePre *.java,*.php,*.feature call StripTrailingWhitespace()
 autocmd BufRead,BufNewFile */templates/* set syntax=handlebars | runtime! ftplugin/handlebars.vim
 
 " Javscript omnicomplete sucks-let YouCompleteMe defer to keywords in open buffers
-autocmd FileType javascript set omnifunc=
+" autocmd FileType javascript set omnifunc=
