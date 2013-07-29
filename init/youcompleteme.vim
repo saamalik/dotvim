@@ -1,5 +1,9 @@
 let ycm_key_list_select_completion = ['<Down>']
 let ycm_collect_identifiers_from_tags_files = 1
+" The default JavaScript omnicomplete SUCKS!
+let g:ycm_filetype_specific_completion_to_disable = {
+    \   'javascript' : 1,
+    \ }
 " let ycm_semantic_triggers =  {
 "     \   'c' : ['->', '.'],
 "     \   'objc' : ['->', '.'],
