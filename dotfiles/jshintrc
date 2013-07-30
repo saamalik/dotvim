@@ -18,15 +18,17 @@
     "dojo"          : false,
 
     "globals"        : {
-      "google" : true,
-      "Android" : true,
-      "define" : true,
-      "Ext" : true,
-      "OpenLayers" : true,
+      "google" : false,
+      "Android" : false,
+      "define" : false,
+      "Ext" : false,
+      "OpenLayers" : false,
 
-      "cisco" : true,
-      "LANG_PACK" : true,
-      "API" : true
+      "cisco" : false,
+      "LANG_PACK" : false,
+      "API" : false,
+      "DEFAULT_ANCHOR" : false,
+      "REQUIRED_CLS" : false
     },
 
 
