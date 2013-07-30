@@ -29,7 +29,7 @@ ln -sf $PWD/vimrc $HOME/.vimrc
 cd dotfiles
 
 path="${PWD#$HOME/}"
-echo "path $path"
+echo "Dotfile path: $path"
 for f in *; do
 	echo "Linking file: $f"
 	ln -sf $path/$f $HOME/.$f
