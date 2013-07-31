@@ -1,4 +1,5 @@
 set noswapfile
+set nowritebackup
 set backspace=indent,eol,start
 
 set path=.,** " . - file path, ** all files inside current directory
