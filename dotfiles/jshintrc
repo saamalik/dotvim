@@ -26,9 +26,16 @@
 
       "cisco" : false,
       "LANG_PACK" : false,
-      "API" : false,
       "DEFAULT_ANCHOR" : false,
-      "REQUIRED_CLS" : false
+      "API" : false,
+      "VsomUtils" : false,
+      "VsomObjectTypes" : false,
+
+      "FIELD_UID" : false,
+
+      "REQUIRED_CLS" : false,
+      "RESOURCE_MAP_LAYER" : false,
+      "RESOURCE_JOB" : false
     },
 
 
