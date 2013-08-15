@@ -31,6 +31,8 @@
       "VsomUtils" : false,
       "VsomObjectTypes" : false,
 
+			"MapUtils" : false,
+
       "FIELD_UID" : false,
 
       "REQUIRED_CLS" : false,
