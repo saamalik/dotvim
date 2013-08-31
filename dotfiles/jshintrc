@@ -27,11 +27,8 @@
       "cisco" : false,
       "LANG_PACK" : false,
       "DEFAULT_ANCHOR" : false,
-      "API" : false,
       "VsomUtils" : false,
       "VsomObjectTypes" : false,
-
-			"MapUtils" : false,
 
       "FIELD_UID" : false,
 
