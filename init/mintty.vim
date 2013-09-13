@@ -16,4 +16,4 @@ else
   let &t_te="\e[?7727l".&t_te
 endif
 noremap <Esc>O[ <Esc>
-noremap! <Esc>O[ <Esc>
+noremap! <Esc>O[ <C-c>
