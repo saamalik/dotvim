@@ -1,4 +1,4 @@
-let g:ctrlp_reuse_window      = 'startify'
+let ctrlp_reuse_window        = 'startify'
 let ctrlp_extensions          = ['tag', 'line']
 let ctrlp_match_window        = 'max:20'
 let ctrlp_mruf_max            = 25
@@ -9,6 +9,7 @@ let ctrlp_open_multiple_files = '3hjr' " three h rest hidden
 let ctrlp_arg_map             = 1      " prompt for multi open
 let ctrlp_root_markers        = ['tags']
 let ctrlp_working_path_mode   = 0
+let ctrlp_prompt_mappings = { 'PrtExit()': ['<esc>O[', '<esc>', '<c-c>', '<c-g>'] }
 let ctrlp_buftag_types        = {
   \ 'css'        : '--language-force=css --css-types=citm',
   \ 'javascript' : '--language-force=javascript',
