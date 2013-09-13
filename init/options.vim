@@ -47,6 +47,7 @@ set listchars=tab:>-,trail:-,eol:$
 set encoding=utf-8  " UTF-8 Default encoding
 
 set timeoutlen=500
+set notimeout				" works only with mintty (look at mintty.vim)
 
 set titlestring=%f title    " Display filename in terminal window
 set rulerformat=%l:%c ruler " Display current column/line (if powerline not working)
