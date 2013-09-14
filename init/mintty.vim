@@ -1,19 +1,20 @@
 " Mode dependent cursors for vim
 
-let &t_ti.="\e[1 q"
-let &t_te.="\e[0 q"
+" mintty app escape key (tmux and non-tmux)
+" https://code.google.com/p/mintty/wiki/Tips#Avoiding_escape_timeout_issues_in_vim
+if &term =~ '^screen'
+	let g:mintty_app_escape_on = "\ePtmux;\e\e[?7727h\e\\"
+	let g:mintty_app_escape_off = "\ePtmux;\e\e[?7727l\e\\"
+else
+	let g:mintty_app_escape_on = "\e[?7727h"
+	let g:mintty_app_escape_off = "\e[?7727l"
+endif
+
+let &t_ti=g:mintty_app_escape_on.&t_ti."\e[1 q"
+let &t_te=g:mintty_app_escape_off.&t_te."\e[0 q"
 
 let &t_SI="\e[5 q"
 let &t_EI="\e[1 q"
 
-" mintty app escape key (tmux and non-tmux)
-" https://code.google.com/p/mintty/wiki/Tips#Avoiding_escape_timeout_issues_in_vim
-if &term =~ '^screen'
-  let &t_ti="\ePtmux;\e\e[?7727h\e\\".&t_ti
-  let &t_te="\ePtmux;\e\e[?7727l\e\\".&t_te
-else
-  let &t_ti="\e[?7727h".&t_ti
-  let &t_te="\e[?7727l".&t_te
-endif
 noremap <Esc>O[ <Esc>
 noremap! <Esc>O[ <C-c>

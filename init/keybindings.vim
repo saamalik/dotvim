@@ -10,6 +10,7 @@ nnoremap <Up> <C-Y>
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
+nnoremap <F6>  :!echo "reset"<cr>
 nnoremap <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
