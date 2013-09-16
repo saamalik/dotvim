@@ -16,5 +16,7 @@ let &t_te=g:mintty_app_escape_off.&t_te."\e[0 q"
 let &t_SI="\e[5 q"
 let &t_EI="\e[1 q"
 
+set <S-F6>=[17;2~
+
 noremap <Esc>O[ <Esc>
 noremap! <Esc>O[ <C-c>
