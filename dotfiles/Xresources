@@ -1,0 +1,51 @@
+! Use UTF-8 by default
+XTerm*utf8: true
+
+! Use a nice truetype font and size by default... 
+XTerm*faceName: DejaVu Sans Mono:size=12:antialias=false
+
+! Default terminal supports color
+XTerm*termName: xterm-256color
+
+! Every shell is a login shell by default (for inclusion of all necessary environment variables)
+! XTerm*loginshell: true
+
+! I like a LOT of scrollback...
+XTerm*savelines: 4096
+
+! Fix the 'Alt' key
+XTerm*metaSendsEscape: true
+
+! Bell (*ding*)
+XTerm*bellIsUrgent: true
+
+! double-click to select whole URLs :D
+! XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+! Solaris based colors
+XTerm*cursorColor: rgb:85/99/01
+XTerm*foreground: rgb:bc/c1/b9
+XTerm*background: rgb:20/20/20
+XTerm*color0: rgb:32/32/32
+xterm*color1: rgb:dc/32/2f
+XTerm*color2: rgb:85/99/00
+XTerm*color3: rgb:b5/89/00
+XTerm*color4: rgb:26/8b/d2
+XTerm*color5: rgb:d3/36/82
+XTerm*color6: rgb:06/98/9a
+XTerm*color7: rgb:ee/e8/d5
+XTerm*color8: rgb:00/2b/36
+XTerm*color9: rgb:cb/4b/16
+XTerm*color10: rgb:58/6e/75
+XTerm*color11: rgb:65/7b/83
+XTerm*color12: rgb:83/94/96
+XTerm*color13: rgb:6c/71/c4
+XTerm*color14: rgb:93/a1/a1
+XTerm*color15: rgb:fd/f6/e3
+
+XTerm.VT100.translations: #override \
+Super <Key> minus: smaller-vt-font() \n\
+Super <Key> plus: larger-vt-font() \n\
+Super <Key> KP_Subtract: smaller-vt-font() \n\
+Super <Key> KP_Add: larger-vt-font() \n
+
