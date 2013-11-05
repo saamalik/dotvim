@@ -1,4 +1,7 @@
-" Mode dependent cursors for vim
+" Abort if not windows
+if !has("win32unix")
+	finish
+endif
 
 " mintty app escape key (tmux and non-tmux)
 " https://code.google.com/p/mintty/wiki/Tips#Avoiding_escape_timeout_issues_in_vim
@@ -10,6 +13,7 @@ else
 	let g:mintty_app_escape_off = "\e[?7727l"
 endif
 
+" Mode dependent cursors for vim
 let &t_ti=g:mintty_app_escape_on.&t_ti."\e[1 q"
 let &t_te=g:mintty_app_escape_off.&t_te."\e[0 q"
 
@@ -20,3 +24,7 @@ set <S-F6>=[17;2~
 
 noremap <Esc>O[ <Esc>
 noremap! <Esc>O[ <C-c>
+
+" F13 used to move down and up lines
+set <F13>=J
+set <S-F13>=K

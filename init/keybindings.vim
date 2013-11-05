@@ -46,12 +46,12 @@ map <C-k> <C-y>
 
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
-nnoremap  :m .+1<CR>==
-nnoremap  :m .-2<CR>==
-inoremap  <Esc>:m .+1<CR>==gi
-inoremap  <Esc>:m .-2<CR>==gi
-vnoremap  :m '>+1<CR>gv=gv
-vnoremap  :m '<-2<CR>gv=gv
+nnoremap <F13>   :m .+1<CR>==
+nnoremap <S-F13> :m .-2<CR>==
+inoremap <F13>   <Esc>:m .+1<CR>==gi
+inoremap <S-F13> <Esc>:m .-2<CR>==gi
+vnoremap <F13>   :m '>+1<CR>gv=gv
+vnoremap <S-F13> :m '<-2<CR>gv=gv
 
 " Save file
 map <C-s> :write<CR>
