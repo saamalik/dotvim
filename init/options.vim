@@ -4,7 +4,7 @@ set backspace=indent,eol,start
 
 set path=.,** " . - file path, ** all files inside current directory
 set wildmenu " command line completion
-set wildignore+=*/target/*,*.class
+set wildignore+=*/node_modules/*,*/target/*,*.class
 set tags=./tags,tags
 set suffixesadd+=.html
 set switchbuf=useopen,usetab " use tab if it already exists
