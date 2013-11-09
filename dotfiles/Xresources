@@ -7,6 +7,9 @@ XTerm*faceName: DejaVu Sans Mono:size=12:antialias=false
 ! Default terminal supports color
 XTerm*termName: xterm-256color
 
+! hide cursor when user is typing
+XTerm*pointerMode: 2
+
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 ! XTerm*loginshell: true
 
@@ -27,7 +30,7 @@ XTerm*cursorColor: rgb:85/99/01
 XTerm*foreground: rgb:bc/c1/b9
 XTerm*background: rgb:20/20/20
 XTerm*color0: rgb:32/32/32
-xterm*color1: rgb:dc/32/2f
+XTerm*color1: rgb:dc/32/2f
 XTerm*color2: rgb:85/99/00
 XTerm*color3: rgb:b5/89/00
 XTerm*color4: rgb:26/8b/d2
