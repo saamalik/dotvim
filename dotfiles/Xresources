@@ -25,6 +25,9 @@ XTerm*bellIsUrgent: true
 ! double-click to select whole URLs :D
 ! XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
+! A little bigger
+XTerm*.VT100.geometry: 100x30
+
 ! Solaris based colors
 XTerm*cursorColor: rgb:85/99/01
 XTerm*foreground: rgb:bc/c1/b9
