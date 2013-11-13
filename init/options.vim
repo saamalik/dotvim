@@ -39,7 +39,7 @@ set smarttab      " Use shiftwidth to tab at line beginning
 set tabstop=2     " tab spacing (settings below are just to unify it)
 set softtabstop=2 " unify
 set shiftwidth=2  " unify
-set noexpandtab   " Give me tabs or give me death
+set expandtab     " Give me spaces or give me death
 set nowrap        " do not wrap lines
 set nrformats=    " treat all numerals as decimal
 set listchars=tab:>-,trail:-,eol:$
