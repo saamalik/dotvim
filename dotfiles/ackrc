@@ -14,6 +14,8 @@
 --ignore-dir=spec/cassettes
 --ignore-dir=features/cassettes
 --ignore-dir=node_modules
+--ignore-dir=dist
+--ignore-dir=bower_components
 --smart-case
 --sort-files
 --color
