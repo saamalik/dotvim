@@ -16,6 +16,9 @@ XTerm*pointerShape: arrow
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 ! XTerm*loginshell: true
 
+! Clipboard
+XTerm*selectToClipboard: true
+
 ! I like a LOT of scrollback...
 XTerm*savelines: 4096
 
