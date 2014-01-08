@@ -1,0 +1,13 @@
+[core]
+	whitespace = cr-at-eol
+	editor = vim
+	autocrlf = input
+	ignorecase = false
+	pager = less -x1,5
+[color]
+	ui = true
+[user]
+	name = Saad Malik
+	email = simfox3@gmail.com
+[push]
+	default = simple
