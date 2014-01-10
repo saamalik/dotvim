@@ -1,0 +1,11 @@
+"xdo key -k 133"
+release + b:10
+
+"xdo key -k 25"
+release + Control + b:10
+
+#"xdo id"
+#release + Shift + b:10
+
+"xdo close"
+release + Shift + b:10
