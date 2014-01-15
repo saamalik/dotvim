@@ -10,8 +10,9 @@ XTerm*termName: xterm-256color
 ! hide cursor when user is typing
 XTerm*pointerMode: 2
 
-! set proper ttymode for BS (Ctrl-h)
+! set proper ttymode for BS (Ctrl-h) / erase key
 XTerm*ttyModes: erase ^?
+XTerm*backarrowKeyIsErase: true
 
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 ! XTerm*loginshell: true
