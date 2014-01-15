@@ -28,6 +28,9 @@ ln -sf $PWD/vimrc $HOME/.vimrc
 
 cd dotfiles
 
+# Backup bashrc
+cp ~/.bashrc ~/.bashrc.bak
+
 path="${PWD#$HOME/}"
 echo "Dotfile path: $path"
 for f in *; do
