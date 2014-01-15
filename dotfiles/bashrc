@@ -1,0 +1,60 @@
+#
+# ~/.bashrc
+#
+
+if [[ -f ~/.dircolors ]] ; then
+  eval $(dircolors -b ~/.dircolors)
+elif [[ -f /etc/DIR_COLORS ]] ; then eval $(dircolors -b /etc/DIR_COLORS)
+fi
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias dir="dir --color=auto"
+alias grep="grep --color=auto"
+alias dmesg='dmesg --color'
+
+PS1='[\u@\h \W]\$ '
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# cd and ls in one
+cl() {
+  dir=$1
+  if [[ -z "$dir" ]]; then
+    dir=$HOME
+  fi
+  if [[ -d "$dir" ]]; then
+    cd "$dir"
+    ls
+  else
+    echo "bash: cl: '$dir': Directory not found"
+  fi
+}
+
+# Start off with a blinking cursor
+echo -ne "\e[0 q"
+
+# Disable Flow-control so these keys are available for mapping C-S/C-Q
+stty -ixon
+
+# Don't show ^C character
+stty -echoctl
+
+function r() {
+if [[ -n $TMUX ]]; then
+  NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
+  if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
+    SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
+  fi
+fi
+}
+
+# Start off with a blinking cursor
+echo -ne "\e[0 q"
+
+export EDITOR="vim"
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -DskipTests=true"
