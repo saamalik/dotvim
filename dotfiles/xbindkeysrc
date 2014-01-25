@@ -1,7 +1,8 @@
 "xdo key -k 133"
 release + b:10
 
-"xdo key -k 25"
+#xdo key -k 25"
+"xdotool key w"
 release + Control + b:10
 
 #"xdo id"
