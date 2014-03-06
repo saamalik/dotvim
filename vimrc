@@ -51,6 +51,7 @@ Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
+Bundle 'digitaltoad/vim-jade'
 
 syntax on
 filetype plugin indent on
