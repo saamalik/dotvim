@@ -15,6 +15,7 @@ set spellfile=~/.vim/spell/en.add
 set spelllang=en_us
 
 set ruler " Line and col bottom right
+set number " show number
 set relativenumber " relative line numbering
 set laststatus=2 " show the status line always
 
