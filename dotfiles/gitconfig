@@ -1,13 +1,18 @@
 [core]
-	whitespace = cr-at-eol
-	editor = vim
-	autocrlf = input
-	ignorecase = false
-	pager = less -x1,5
+  whitespace = cr-at-eol
+  editor = vim
+  autocrlf = input
+  ignorecase = false
+  pager = less -x1,5
 [color]
-	ui = true
+  ui = true
 [user]
-	name = Saad Malik
-	email = simfox3@gmail.com
+  name = Saad Malik
+  email = simfox3@gmail.com
 [push]
-	default = simple
+  default = simple
+[merge]
+  conflictstyle = diff3
+  tool = mymeld
+[mergetool "mymeld"]
+  cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE --output $MERGED
