@@ -10,9 +10,6 @@ nnoremap <Up> <C-Y>
 nnoremap <leader>/ :nohlsearch<cr>
 nnoremap <leader>db :bprev<cr>:bdelete #<cr>
 
-" ignore app escape mode escapes
-nnoremap O[ <nop>
-
 nnoremap <F1>   :make<CR>
 nnoremap <F6>   :call writefile([g:mintty_app_escape_on], '/dev/tty', 'b')<cr>
 nnoremap <S-F6> :call writefile([g:mintty_app_escape_off], '/dev/tty', 'b')<cr>
