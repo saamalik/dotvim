@@ -1,7 +1,7 @@
 ! Use UTF-8 by default
 XTerm*utf8: true
 
-! Use a nice truetype font and size by default... 
+! Use a nice truetype font and size by default...
 XTerm*faceName: DejaVu Sans Mono for Powerline:size=12:antialias=false
 ! XTerm*faceName: DejaVu Sans Mono:size=12:antialias=false
 
