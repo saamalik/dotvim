@@ -58,6 +58,7 @@ map! <C-s> <Esc>:write<CR>
 cnoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
 inoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
 
+" move to beginning
 cnoremap <C-A> <C-B>
 
 " *** PLUGINS ***
@@ -72,9 +73,6 @@ nnoremap <leader>t :CtrlPBufTagAll<CR>
 nnoremap <leader>p :CtrlPTag<CR>
 nnoremap <leader>T :CtrlPBufTag<CR>
 nnoremap <leader>L :CtrlPLine<CR>
-
-" MiniBufExpl
-nnoremap <F3> :MBEToggle<cr>
 
 " NERDTree
 nnoremap <F4> :NERDTreeToggle<cr>

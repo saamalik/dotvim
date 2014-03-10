@@ -31,7 +31,6 @@ Bundle 'gilesbowkett/vim-handlebars'
 " General
 Bundle 'BufOnly.vim'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'Raimondi/delimitMate'
 Bundle 'Valloric/ListToggle'
 Bundle 'Valloric/YouCompleteMe'
@@ -43,7 +42,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'saamalik/mango.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'techlivezheng/vim-plugin-minibufexpl'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
@@ -52,6 +50,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tsaleh/vim-matchit.git'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'bling/vim-airline'
 
 syntax on
 filetype plugin indent on
