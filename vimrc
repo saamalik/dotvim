@@ -27,6 +27,8 @@ Bundle 'gmarik/vundle'
 " Syntax and language improvements
 Bundle 'pangloss/vim-javascript'
 Bundle 'gilesbowkett/vim-handlebars'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'saamalik/mango.vim'
 
 " General
 Bundle 'BufOnly.vim'
@@ -39,7 +41,6 @@ Bundle 'henrik/vim-qargs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-startify'
 Bundle 'mileszs/ack.vim'
-Bundle 'saamalik/mango.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-multiple-cursors'
@@ -48,8 +49,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
-Bundle 'tsaleh/vim-matchit.git'
-Bundle 'digitaltoad/vim-jade'
 Bundle 'bling/vim-airline'
 
 syntax on
