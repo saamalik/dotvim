@@ -14,6 +14,7 @@ alias ls='ls --color=auto'
 alias dir="dir --color=auto"
 alias grep="grep --color=auto"
 alias dmesg='dmesg --color'
+alias x="xclip -selection clipboard"
 
 PS1='[\u@\h \W]\$ '
 
