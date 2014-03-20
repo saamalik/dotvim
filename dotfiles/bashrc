@@ -58,4 +58,6 @@ fi
 echo -ne "\e[0 q"
 
 export EDITOR="vim"
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -DskipTests=true"
+# export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m -DskipTests=true"
+# export MAVEN_OPTS="-Xmx512m -Djavax.xml.accessExternalSchema=file,http -DskipTests=true"
+export MAVEN_OPTS="-Xmx512m -DskipTests=true"
