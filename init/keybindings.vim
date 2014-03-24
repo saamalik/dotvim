@@ -34,12 +34,12 @@ vnoremap * y/\V<c-r>=escape(@", '\')<cr><cr>
 vnoremap # y/\V<c-r>=escape(@", '\')<cr><cr>
 
 "Smart way to move between windows
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+noremap <C-h> <C-w>h
+noremap <C-l> <C-w>l
 
 " Smart way to scroll
-map <C-j> <C-e>
-map <C-k> <C-y>
+noremap <C-j> <C-e>
+noremap <C-k> <C-y>
 
 " Move lines up and down (http://vim.wikia.com/wiki/Moving_lines_up_or_down)
 " Using Ctrl+Shift-J, and Ctrl+Shift-K
@@ -51,8 +51,8 @@ vnoremap <F13>   :m '>+1<CR>gv=gv
 vnoremap <S-F13> :m '<-2<CR>gv=gv
 
 " Save file
-map <C-s> :write<CR>
-map! <C-s> <Esc>:write<CR>
+noremap <C-s> :write<CR>
+noremap! <C-s> <Esc>:write<CR>
 
 " Current file name replace forward slashes  with . (useful in js)
 cnoremap <expr> <C-R><C-J> substitute(expand("%:r"), "/", ".", "g")
@@ -74,6 +74,8 @@ nnoremap <leader>p :CtrlPTag<CR>
 nnoremap <leader>T :CtrlPBufTag<CR>
 nnoremap <leader>L :CtrlPLine<CR>
 
-" NERDTree
-nnoremap <F4> :NERDTreeToggle<cr>
-nnoremap <leader><space> :NERDTreeFind<cr>
+" netrw
+noremap <silent> <Leader>e :call ExToggle("")<CR>
+noremap <silent> <Leader>,e :call ExToggle(getcwd())<CR>
+noremap <silent> <Leader><Tab> :call VexToggle("")<CR>
+noremap <silent> <Leader>,<Tab> :call VexToggle(getcwd())<CR>
