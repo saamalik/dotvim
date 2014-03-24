@@ -69,5 +69,5 @@ let g:netrw_dirhistmax=100      " keep more history
 let g:netrw_altfile=1           " last edited file '#'
 let g:netrw_liststyle=3         " thin
 let g:netrw_altv=1              " open files on right
-let g:netrw_preview=1           " open previews vertically
+let g:netrw_preview=0           " open previews vertically
 let g:netrw_use_errorwindow=0   " suppress error window
