@@ -13,3 +13,5 @@ let &t_EI="\e[1 q"
 " F13 used to move down and up lines
 set <F13>=J
 set <S-F13>=K
+
+highlight! Comment cterm=underline
