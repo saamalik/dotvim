@@ -29,6 +29,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'gilesbowkett/vim-handlebars'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'saamalik/mango.vim'
+Bundle 'chriskempson/vim-tomorrow-theme'
 
 " General
 Bundle 'BufOnly.vim'
