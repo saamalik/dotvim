@@ -4,3 +4,4 @@ colorscheme Tomorrow
 set guioptions-=T " turn off toolbar
 " disable all beeps and sounds
 set visualbell t_vb=
+set lines=50 columns=150
