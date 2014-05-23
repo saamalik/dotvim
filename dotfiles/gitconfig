@@ -10,7 +10,7 @@
   name = Saad Malik
   email = simfox3@gmail.com
 [push]
-  default = simple
+  default = upstream
 [merge]
   conflictstyle = diff3
   tool = mymeld
