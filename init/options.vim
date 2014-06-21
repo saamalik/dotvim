@@ -3,6 +3,7 @@ set nowritebackup
 set backspace=indent,eol,start
 
 set path=.,** " . - file path, ** all files inside current directory
+set autoread
 set wildmenu " command line completion
 set wildmode=full " show menu, and then start filling in
 set wildignore+=*/node_modules/*,*/target/*,*/dist/*,*/bower_components/*,*.class
