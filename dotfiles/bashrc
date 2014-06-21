@@ -16,6 +16,7 @@ alias grep="grep --color=auto"
 alias dmesg='dmesg --color'
 alias x="xclip -selection clipboard"
 alias mvn="mvn -T 1C"
+alias cb="xclip -selection clipboard"
 
 PS1='[\u@\h \W]\$ '
 
