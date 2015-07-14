@@ -16,3 +16,5 @@
   tool = mymeld
 [mergetool "mymeld"]
   cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
+[rerere]
+	enabled = 1
