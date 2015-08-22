@@ -53,6 +53,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bling/vim-airline'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'mattn/emmet-vim'
 
 syntax on
 filetype plugin indent on
