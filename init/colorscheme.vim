@@ -1,2 +1,2 @@
 set background=dark
-silent! colorscheme mango
+silent! colorscheme gruvbox

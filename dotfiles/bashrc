@@ -38,7 +38,7 @@ cl() {
 }
 
 # Start off with a blinking cursor
-echo -ne "\e[0 q"
+#echo -ne "\e[0 q"
 
 # Disable Flow-control so these keys are available for mapping C-S/C-Q
 stty -ixon
@@ -56,7 +56,7 @@ fi
 }
 
 # Start off with a blinking cursor
-echo -ne "\e[0 q"
+#echo -ne "\e[0 q"
 
 export EDITOR="vim"
 export MAVEN_OPTS="-Xmx1024m -DskipTests=true"
