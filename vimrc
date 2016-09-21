@@ -16,50 +16,49 @@
 " .vim/init, or create a new one.
 
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
 
-" The master vundler hahahah (evil laugh)
-Bundle 'gmarik/vundle'
+call plug#begin('~/.vim/plugged')
 
 " Syntax and language improvements
-Bundle 'pangloss/vim-javascript'
-Bundle 'mxw/vim-jsx'
-Bundle 'gilesbowkett/vim-handlebars'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'saamalik/mango.vim'
-Bundle 'chriskempson/vim-tomorrow-theme'
-Bundle 'morhetz/gruvbox'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'gilesbowkett/vim-handlebars'
+Plug 'digitaltoad/vim-jade'
+Plug 'saamalik/mango.vim'
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'morhetz/gruvbox'
+Plug 'derekwyatt/vim-scala'
 
 " General
-Bundle 'BufOnly.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Valloric/ListToggle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'henrik/vim-qargs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mhinz/vim-startify'
-Bundle 'mileszs/ack.vim'
-Bundle 'saamalik/netrw'
-" Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-" Bundle 'terryma/vim-multiple-cursors'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-ragtag'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'mattn/emmet-vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Valloric/ListToggle'
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'airblade/vim-gitgutter'
+Plug 'kien/ctrlp.vim'
+Plug 'mhinz/vim-startify'
+Plug 'mileszs/ack.vim'
+Plug 'saamalik/netrw'
+Plug 'scrooloose/syntastic'
+Plug 'tomtom/tcomment_vim'
+Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tommcdo/vim-exchange'
+Plug 'mattn/emmet-vim'
 
-syntax on
-filetype plugin indent on
+" Older
+" Plug 'Lokaltog/vim-easymotion'
+
+" Add plugins to &runtimepath
+call plug#end()
 
 " Source initialization files
 runtime! init/**.vim
