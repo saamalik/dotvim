@@ -47,8 +47,6 @@ set nowrap        " do not wrap lines
 set nrformats=    " treat all numerals as decimal
 set listchars=tab:>-,trail:-,eol:$
 
-set encoding=utf-8  " UTF-8 Default encoding
-
 set timeoutlen=1000
 set ttimeoutlen=100
 
