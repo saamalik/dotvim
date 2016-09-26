@@ -30,10 +30,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'gilesbowkett/vim-handlebars'
 Plug 'digitaltoad/vim-jade'
-Plug 'saamalik/mango.vim'
+Plug 'derekwyatt/vim-scala'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
-Plug 'derekwyatt/vim-scala'
 
 " General
 Plug 'jiangmiao/auto-pairs'
@@ -42,9 +41,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'mhinz/vim-startify'
-Plug 'mileszs/ack.vim'
-Plug 'saamalik/netrw'
-Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'tomtom/tcomment_vim'
 Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
 Plug 'tpope/vim-surround'
@@ -55,7 +52,9 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mattn/emmet-vim'
 
 " Older
+" Plug 'scrooloose/syntastic'
 " Plug 'Lokaltog/vim-easymotion'
+" Plug 'mileszs/ack.vim'
 
 " Add plugins to &runtimepath
 call plug#end()

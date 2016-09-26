@@ -1,6 +1,5 @@
 " Start Vim with '-u {scriptfile}' option like 'vim -u ~/.vimrc.min'
-if has('vim_starting')
-  set nocompatible
-  " Add vim-gita repository to the runtimepath
-  set runtimepath+=~/.vim/plugged/vim-gita
-endif
+set nocompatible
+" Add vim-gita repository to the runtimepath
+set runtimepath+=~/.vim/plugged/vim-airline
+set runtimepath+=~/.vim/plugged/neomake
