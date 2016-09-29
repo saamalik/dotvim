@@ -38,20 +38,21 @@ Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 Plug 'Valloric/ListToggle'
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
 Plug 'airblade/vim-gitgutter'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'neomake/neomake'
-Plug 'tomtom/tcomment_vim'
-Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
+Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tommcdo/vim-exchange'
-Plug 'mattn/emmet-vim'
 
 " Older
+" Plug 'kien/ctrlp.vim'
 " Plug 'scrooloose/syntastic'
 " Plug 'Lokaltog/vim-easymotion'
 " Plug 'mileszs/ack.vim'
