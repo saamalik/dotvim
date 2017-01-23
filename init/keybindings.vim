@@ -54,6 +54,7 @@ cnoremap <C-A> <C-B>
 
 " fzf.vim
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>F :Files %:h<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>L :BLines<CR>
 nnoremap <leader>t :Tags<CR>
