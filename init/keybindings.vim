@@ -52,13 +52,9 @@ cnoremap <C-A> <C-B>
 
 " *** PLUGINS ***
 
-" CtrlP
-nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>F :CtrlPCurFile<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMixed<CR>
-nnoremap <leader>M :CtrlPMRUFiles<CR>
-nnoremap <leader>t :CtrlPBufTagAll<CR>
-nnoremap <leader>p :CtrlPTag<CR>
-nnoremap <leader>T :CtrlPBufTag<CR>
-nnoremap <leader>L :CtrlPLine<CR>
+" fzf.vim
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>L :BLines<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>T :BTags<CR>
