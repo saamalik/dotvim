@@ -3,6 +3,6 @@ let g:neomake_sh_enabled_makers=['shellcheck']
 
 augroup Neomake
   autocmd!
-  " Run Neomake all the time
-  autocmd BufWritePost,BufEnter * Neomake
+  " Run Neomake on write the time
+  autocmd BufWritePost * Neomake
 augroup END
