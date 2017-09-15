@@ -8,6 +8,7 @@ git clone git@github.com:saamalik/dotvim.git ~/.vim
 
 *Install*:
 ```
+$ ln -s ~/.config/nvim ~/.vim
 $ ./sync-bundles.sh
 ```
 
