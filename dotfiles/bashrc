@@ -55,6 +55,18 @@ if [[ -n $TMUX ]]; then
 fi
 }
 
+function docker_id {
+  docker ps | grep "$1" | cut -f1 -d" "
+}
+
+alias did=docker_id
+
+function de {
+   container_id=$(docker_id "$1")
+   c=${2:-"bash -l"}
+   docker exec -it -u root "$container_id" $c
+}
+
 # Start off with a blinking cursor
 #echo -ne "\e[0 q"
 
@@ -64,3 +76,10 @@ export MAVEN_OPTS="-Xmx1024m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
