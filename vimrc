@@ -31,6 +31,7 @@ Plug 'mxw/vim-jsx'
 Plug 'gilesbowkett/vim-handlebars'
 Plug 'digitaltoad/vim-jade'
 Plug 'derekwyatt/vim-scala'
+Plug 'leafgarland/typescript-vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'morhetz/gruvbox'
 
