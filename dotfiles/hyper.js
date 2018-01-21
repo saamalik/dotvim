@@ -4,7 +4,7 @@
 
 module.exports = {
   config: {
-    // modifierKeys: { altIsMeta: true },
+    modifierKeys: { altIsMeta: true },
 
     // Choose either "stable" for receiving highly polished,
     // or "canary" for less polished but more frequent updates
