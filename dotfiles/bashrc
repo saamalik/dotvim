@@ -72,7 +72,7 @@ function de {
 
 source ~/projects/rerun/rerun-*/etc/bash_completion.sh
 export EDITOR="nvim"
-export MAVEN_OPTS="-Xmx1024m -DskipTests=true"
+export MAVEN_OPTS="-Xmx2048m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
