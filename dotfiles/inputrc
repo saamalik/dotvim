@@ -22,3 +22,7 @@ set mark-symlinked-directories on
 # Insert a space character then performs
 # a history expansion in the line
 #Space: magic-space
+#
+#"ƒ": forward-word
+#"∫": backward-word
+#"≥": yank-last-arg
