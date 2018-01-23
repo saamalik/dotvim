@@ -1,3 +1,3 @@
-if has("nvim")
-  set termguicolors
-endif
+" if has("nvim")
+  " set termguicolors
+" endif

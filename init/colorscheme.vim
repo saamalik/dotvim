@@ -1,4 +1,7 @@
-set background=dark
+" set background=dark
 " silent! colorscheme Tomorrow-Night
-" silent! colorscheme neodark
-silent! colorscheme gruvbox
+" silent! colorscheme mustang
+" silent! colorscheme gruvbox
+silent! colorscheme peachpuff
+" hi Normal ctermbg=none
+
