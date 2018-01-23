@@ -50,7 +50,8 @@ module.exports = {
     showWindowControls: '',
 
     // custom padding (css format, i.e.: `top right bottom left`)
-    padding: '0 0 5px',
+    // padding: '5px 0 5px',
+    padding: '5px 0 5px',
 
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
@@ -71,26 +72,6 @@ module.exports = {
       lightMagenta: '#cc00ff',
       lightCyan: '#00ffff',
       lightWhite: '#ffffff'
-    },
-
-    MaterialTheme: {
-        // Set the theme variant,
-        // OPTIONS: 'Darker', 'Palenight', ''
-        // theme: 'Darker',
-        theme: 'Darker',
-
-        // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
-        // OPTIONS: From 0.1 to 1
-        backgroundOpacity: '0.85',
-
-        // [Optional] Set the accent color for the current active tab
-        accentColor: '#64FFDA',
-
-        // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
-        // OPTIONS: 'dark', 'ultra-dark', 'bright'
-        // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
-        // vibrancy: 'bright'
-        vibrancy: 'ultra-dark'
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -137,7 +118,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-material-theme'
+    // Themes
+    "hyper-chesterish"
+    // "hyper-oceans16"
+    // "hyper-ramda"
+    // "hyper-snazzy"
   ],
 
   // in development, you can create a directory under
