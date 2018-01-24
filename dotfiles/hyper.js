@@ -119,7 +119,11 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     // Themes
-    "hyper-chesterish"
+    // "hyper-material-theme"
+
+    "hyper-snazzy"
+
+    // "hyper-chesterish"
     // "hyper-oceans16"
     // "hyper-ramda"
     // "hyper-snazzy"
