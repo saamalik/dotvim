@@ -70,8 +70,9 @@ function de {
 # Start off with a blinking cursor
 #echo -ne "\e[0 q"
 
-source ~/projects/rerun/rerun-*/etc/bash_completion.sh
-export EDITOR="nvim"
+#source ~/projects/rerun/rerun-*/etc/bash_completion.sh
+export VISUAL="nvim"
+export CDPATH=".:~/projects"
 export MAVEN_OPTS="-Xmx2048m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 
