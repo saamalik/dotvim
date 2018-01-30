@@ -15,43 +15,53 @@
 " come first or last, like vundle. Instead, add it to one of the files in
 " .vim/init, or create a new one.
 
-set nocompatible
+packadd minpac
 
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
+call minpac#init()
 
-call plug#begin('~/.vim/plugged')
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 " Syntax and language improvements
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'gilesbowkett/vim-handlebars'
-Plug 'digitaltoad/vim-jade'
-Plug 'derekwyatt/vim-scala'
-Plug 'leafgarland/typescript-vim'
-Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'morhetz/gruvbox'
-Plug 'KeitaNakamura/neodark.vim'
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('mxw/vim-jsx')
+call minpac#add('gilesbowkett/vim-handlebars')
+call minpac#add('digitaltoad/vim-jade')
+call minpac#add('derekwyatt/vim-scala')
+call minpac#add('leafgarland/typescript-vim')
+" call minpac#add('chriskempson/vim-tomorrow-theme')
+" Plug 'morhetz/gruvbox'
+" Plug 'KeitaNakamura/neodark.vim'
 
 " General
-Plug 'jiangmiao/auto-pairs'
-Plug 'Valloric/ListToggle'
+call minpac#add('jiangmiao/auto-pairs')
+" Plug 'Valloric/ListToggle'
 " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
-Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-startify'
-Plug 'neomake/neomake'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
-Plug 'mattn/emmet-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
+"
+call minpac#add('airblade/vim-gitgutter')
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+call minpac#add('junegunn/fzf.vim')
+call minpac#add('mhinz/vim-startify')
+call minpac#add('neomake/neomake')
+call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+
+set runtimepath+=~/.fzf
+
+" nmap <leader><tab> <plug>(fzf-maps-n)
+" xmap <leader><tab> <plug>(fzf-maps-x)
+" omap <leader><tab> <plug>(fzf-maps-o)
+
+" " Insert mode completion
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Older
 " Plug 'kien/ctrlp.vim'
@@ -60,7 +70,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Plug 'mileszs/ack.vim'
 
 " Add plugins to &runtimepath
-call plug#end()
+" call plug#end()
 
 " Source initialization files
 runtime! init/**.vim
