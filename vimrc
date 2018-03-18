@@ -51,6 +51,9 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('vim-airline/vim-airline')
 call minpac#add('vim-airline/vim-airline-themes')
 
+" Load everything
+packloadall
+
 set runtimepath+=~/.fzf
 
 " nmap <leader><tab> <plug>(fzf-maps-n)
