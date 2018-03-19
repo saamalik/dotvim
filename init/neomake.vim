@@ -1,5 +1,13 @@
 " Use shellcheck instead of sh to check for bash scripts
 let g:neomake_sh_enabled_makers=['shellcheck']
 
-" When writing a buffer
-call neomake#configure#automake('w')
+" augroup Neomake
+"   autocmd!
+"   " Run Neomake on write the time
+"   autocmd BufWritePost * Neomake
+" augroup END
+
+call neomake#configure#automake({
+  \ 'BufWritePost': {'delay': 0},
+  \ 'BufWinEnter': {},
+  \ }, 500)
