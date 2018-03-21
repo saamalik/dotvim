@@ -74,7 +74,7 @@ function de {
 #export CDPATH=".:~/projects"
 
 export VISUAL="nvim"
-export MAVEN_OPTS="-Xmx2048m -DskipTests=true"
+export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
