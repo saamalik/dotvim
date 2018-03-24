@@ -15,12 +15,6 @@ nnoremap <F10>  :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
       \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
       \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" Clear screen (ctrl+shift) since ctrl+l bound to move window right
-noremap  <C-l>
-
-" Ctrl + Shift + Enter moves to end of line
-noremap!  <C-o>A
-
 " Start / End of braces {  }
 " map [[ ?{<CR>w99[{
 " map ]] /}<CR>b99]}
