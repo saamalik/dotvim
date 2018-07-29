@@ -119,9 +119,9 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     // Themes
-    // "hyper-material-theme"
+    "hyper-material-theme"
 
-    "hyper-snazzy"
+    // "hyper-snazzy"
 
     // "hyper-chesterish"
     // "hyper-oceans16"
