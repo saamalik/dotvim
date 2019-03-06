@@ -56,22 +56,24 @@ module.exports = {
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
     colors: {
-      black: '#000000',
-      red: '#ff0000',
-      green: '#33ff00',
-      yellow: '#ffff00',
-      blue: '#0066ff',
-      magenta: '#cc00ff',
-      cyan: '#00ffff',
-      white: '#d0d0d0',
-      lightBlack: '#808080',
-      lightRed: '#ff0000',
-      lightGreen: '#33ff00',
-      lightYellow: '#ffff00',
-      lightBlue: '#0066ff',
-      lightMagenta: '#cc00ff',
-      lightCyan: '#00ffff',
-      lightWhite: '#ffffff'
+    },
+
+    MaterialTheme: {
+      // Set the theme variant,
+      // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
+      theme: '',
+
+      // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
+      // OPTIONS: From 0.1 to 1
+      backgroundOpacity: '1',
+
+      // [Optional] Set the accent color for the current active tab
+      accentColor: '#64FFDA',
+
+      // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
+      // OPTIONS: 'dark', 'ultra-dark', 'bright'
+      // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
+      vibrancy: ''
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
@@ -121,7 +123,7 @@ module.exports = {
     // Themes
     "hyper-material-theme"
 
-    // "hyper-snazzy"
+     // "hyper-snazzy"
 
     // "hyper-chesterish"
     // "hyper-oceans16"
