@@ -78,7 +78,6 @@ function title() {
 export VISUAL="nvim"
 export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
-export HOMEBREW_GITHUB_API_TOKEN="c2b0c184d7c3cb7facfc20ec1ae14e86cbf0777d"
 
 PS1='[\u@\h \W]\$ '
 if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
@@ -87,6 +86,8 @@ if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
   # PS1='[\u@\h $(kube_ps1) \W]\$ '
   PS1='[\u@\h $(kube_ps1) \W]\n\$ '
 fi
+
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
