@@ -29,9 +29,13 @@ set ignorecase " make searches case-insensitive
 set smartcase  " ... unless they contain upper-case letters
 set infercase  " infer proper case when doing keyword completion
 
+if exists('+inccommand')
+  set inccommand=nosplit
+endif
+
 set mouse=a
 if &term =~ '^screen'
-	set ttymouse=xterm2 " tmux knows the extended mouse mode
+  set ttymouse=xterm2 " tmux knows the extended mouse mode
 endif
 
 " Text Formatting/Layout
