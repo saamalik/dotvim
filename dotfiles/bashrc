@@ -17,8 +17,6 @@ alias dmesg='dmesg --color'
 alias mvn="mvn -T 1C"
 alias cb="xclip -selection clipboard"
 
-PS1='[\u@\h \W]\$ '
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -67,6 +65,10 @@ function de {
    docker exec -it -u root "$container_id" $c
 }
 
+function title() {
+  echo -e "\033]0;${1:?please specify a title}\007"
+}
+
 # Start off with a blinking cursor
 #echo -ne "\e[0 q"
 
@@ -77,6 +79,14 @@ export VISUAL="nvim"
 export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 export HOMEBREW_GITHUB_API_TOKEN="c2b0c184d7c3cb7facfc20ec1ae14e86cbf0777d"
+
+PS1='[\u@\h \W]\$ '
+if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
+  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+  KUBE_PS1_SYMBOL_ENABLE=false
+  # PS1='[\u@\h $(kube_ps1) \W]\$ '
+  PS1='[\u@\h $(kube_ps1) \W]\n\$ '
+fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
