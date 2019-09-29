@@ -4,6 +4,9 @@
 
 module.exports = {
   config: {
+    // Temporary
+    webGLRenderer: false,
+
     modifierKeys: { altIsMeta: true },
 
     // Choose either "stable" for receiving highly polished,
@@ -129,6 +132,8 @@ module.exports = {
     // "hyper-oceans16"
     // "hyper-ramda"
     // "hyper-snazzy"
+    //
+    // "hyperterm-tabs"
   ],
 
   // in development, you can create a directory under
