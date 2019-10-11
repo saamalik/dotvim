@@ -5,7 +5,7 @@
 module.exports = {
   config: {
     // Temporary
-    webGLRenderer: false,
+    webGLRenderer: true,
 
     modifierKeys: { altIsMeta: true },
 
