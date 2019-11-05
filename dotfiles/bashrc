@@ -82,12 +82,6 @@ export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
 
 PS1='[\u@\h \W]\$ '
-if [ -f /usr/local/opt/kube-ps1/share/kube-ps1.sh ]; then
-  source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
-  KUBE_PS1_SYMBOL_ENABLE=false
-  # PS1='[\u@\h $(kube_ps1) \W]\$ '
-  PS1='[\u@\h $(kube_ps1) \W]\n\$ '
-fi
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 
