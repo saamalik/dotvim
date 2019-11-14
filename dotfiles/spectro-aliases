@@ -1,0 +1,22 @@
+alias ui_lb="kubectl -n hubble-system get svc spectro-ui -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
+alias ui_kill="kubectl -n hubble-system delete pod -l app=ui"
+alias clusterservice_lb="kubectl -n hubble-system get svc cluster-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
+alias clusterservice_lb="kubectl -n hubble-system get svc cluster-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
+
+alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
+
+kconfig() {
+  kubectl get secret $1-kubeconfig-backup -o json -o jsonpath="{['data']['\value']}" | base64 -d
+}
+
+kctx() {
+  (
+    cd ~/.kube/
+    KUBE=$(ls kube-* | fzf)
+    [[ -n "$KUBE" ]] && ln -sf $KUBE config
+  )
+}
+
+knsresources() {
+  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n "${1:-default}"
+}
