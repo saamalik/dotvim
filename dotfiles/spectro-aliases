@@ -1,22 +1,47 @@
-alias ui_lb="kubectl -n hubble-system get svc spectro-ui -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
-alias ui_kill="kubectl -n hubble-system delete pod -l app=ui"
-alias clusterservice_lb="kubectl -n hubble-system get svc cluster-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
-alias clusterservice_lb="kubectl -n hubble-system get svc cluster-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'"
+[ -f ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases ] && source ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases
 
-alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 
-kconfig() {
-  kubectl get secret $1-kubeconfig-backup -o json -o jsonpath="{['data']['\value']}" | base64 -d
+# Generic
+kprint () {
+  cat "${BASH_SOURCE[0]}"
 }
 
 kctx() {
   (
-    cd ~/.kube/
+    cd ~/.kube/ || exit 1
+    # shellcheck disable=SC2012
     KUBE=$(ls kube-* | fzf)
-    [[ -n "$KUBE" ]] && ln -sf $KUBE config
+    [[ -n "$KUBE" ]] && ln -sf "$KUBE" config
   )
 }
 
 knsresources() {
   kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n "${1:-default}"
 }
+
+klbip() {
+  kubectl -n "$1" get svc "$2" -o jsonpath="{.status.loadBalancer.ingress[*]['ip', 'hostname']}"
+}
+
+kpatchfinalizer() {
+  kubectl -n "$1" patch --type merge -p '{"metadata":{"finalizers":[]}}' "$2"
+}
+
+# Spectro specific
+kconfig() {
+  kubectl get secret $1-kubeconfig-backup -o json -o jsonpath="{['data']['\value']}" | base64 -d
+}
+
+kpclusterapi() {
+  # shellcheck disable=SC2207
+  api=( $(kubectl -n "$1" get cluster-api -o name) )
+  for r in "${api[@]}"; do
+    kpatchfinalizer "$1" "$r"
+  done
+}
+
+alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
+
+alias clusterservice_lb="klbip hubble-system cluster-service"
+alias ui_lb="klbip hubble-system spectro-ui"
+alias ui_kill="kubectl -n hubble-system delete pod -l app=ui"
