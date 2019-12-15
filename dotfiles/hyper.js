@@ -5,7 +5,7 @@
 module.exports = {
   config: {
     // Temporary
-    webGLRenderer: true,
+    webGLRenderer: false,
 
     modifierKeys: { altIsMeta: true },
 
@@ -64,7 +64,7 @@ module.exports = {
     MaterialTheme: {
       // Set the theme variant,
       // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
-      theme: '',
+      theme: 'Palenight',
 
       // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
       // OPTIONS: From 0.1 to 1
