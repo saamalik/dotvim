@@ -46,7 +46,7 @@ stty -ixon
 # Don't show ^C character
 stty -echoctl
 
-function r() {
+r() {
 if [[ -n $TMUX ]]; then
   NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
   if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
@@ -55,34 +55,29 @@ if [[ -n $TMUX ]]; then
 fi
 }
 
-function docker_id {
+docker_id() {
   docker ps | grep "$1" | cut -f1 -d" "
 }
 
 alias did=docker_id
 
-function de {
+de() {
    container_id=$(docker_id "$1")
    c=${2:-"bash -l"}
    docker exec -it -u root "$container_id" $c
 }
 
-function title() {
-  echo -e "\033]0;${1:?please specify a title}\007"
+kube_ps2() {
+  [[ -z "$KUBECONFIG" ]] && return
+
+  local KUBE_CONTEXT
+  KUBE_CONTEXT="$(kubectl config current-context 2>/dev/null)"
+
+  echo -e "\e[1;33m $KUBE_CONTEXT\e[0m"
 }
 
-# Start off with a blinking cursor
-#echo -ne "\e[0 q"
-
-#source ~/projects/rerun/rerun-*/etc/bash_completion.sh
-#export CDPATH=".:~/projects"
-
-export VISUAL="nvim"
-export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
-export RERUN_MODULES="$HOME/projects/rerun_modules"
-
-PS1='[\u@\h \W]\$ '
+# Pretty PS1
+PS1='[\u@\h \W$(kube_ps2)]\$ '
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

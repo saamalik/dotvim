@@ -1,0 +1,27 @@
+# ~/.bash_profile
+#
+# enable Homebrew coreutils
+export GOPATH="$HOME/go"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:~/bin:$GOPATH/bin:/usr/local/opt/curl/bin:$PATH"
+
+export VISUAL="nvim"
+export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
+export RERUN_MODULES="$HOME/projects/rerun_modules"
+
+#export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+# Source bashrc
+# shellcheck disable=SC1090
+source "$HOME/.bashrc"
+
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
