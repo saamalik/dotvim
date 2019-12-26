@@ -76,8 +76,21 @@ kube_ps2() {
   echo -e "\e[0;33m $KUBE_CONTEXT\e[0m"
 }
 
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
 # Pretty PS1
 PS1='[\u@\h \W$(kube_ps2)]\$ '
+
+#export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
