@@ -10,8 +10,9 @@ git clone https://github.com/k-takata/minpac.git \
   ~/.vim/pack/minpac/opt/minpac
 
 # Setup fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+echo install: brew install fzf
+#git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+#~/.fzf/install --all
 
 # Kube tmux
 git clone https://github.com/jonmosco/kube-tmux.git ~/.tmux/kube-tmux
