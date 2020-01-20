@@ -25,6 +25,8 @@ set incsearch " Incremental search
 set hlsearch  " Highlight search
 set showmatch " Show matching brackets
 
+set grepprg=ack\ -k
+
 set ignorecase " make searches case-insensitive
 set smartcase  " ... unless they contain upper-case letters
 set infercase  " infer proper case when doing keyword completion
