@@ -17,7 +17,7 @@ alias dmesg='dmesg --color'
 alias mvn="mvn -T 1C"
 alias cb="xclip -selection clipboard"
 
-alias stmux="tmux new -A -s spectro"
+#alias stmux="tmux new -A -s spectro"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

@@ -1,8 +1,24 @@
 [ -f ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases ] && source ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases
 
+stmux() {
+  cd ~/projects/spectro || exit 1
+  tmux attach-session -t spectro ||
+  tmux \
+    new -s spectro -n shell \; \
+    neww -n optic -c optic \; \
+    neww -n hubble -c hubble \; \
+    neww -n jet -c jet \; \
+    neww -n ally -c ally \; \
+    neww -n pallet -c pallet \; \
+    neww -n pax -c pax \; \
+    neww -n fun1 \; \
+    neww -n k9s \; send-keys 'k9s' \; \
+    neww -n cicd -t 98 \; send-keys 'export KUBECONFIG=~/.kube/kube-gke-spectro-cicd' C-m \; \
+    neww -n vpn -t 99
+}
 
 # Generic
-kprint () {
+kprint() {
   cat "${BASH_SOURCE[0]}"
 }
 
@@ -39,6 +55,8 @@ kpclusterapi() {
     kpatchfinalizer "$1" "$r"
   done
 }
+
+export -f kpclusterapi kpatchfinalizer kprint knsresources kctx
 
 alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 
