@@ -8,11 +8,12 @@ stmux() {
     neww -n optic -c optic \; \
     neww -n hubble -c hubble \; \
     neww -n jet -c jet \; \
-    neww -n ally -c ally \; \
-    neww -n pallet -c pallet \; \
+    neww -n blare -c blare \; \
+    neww -n swiss -c swissarmy \; \
     neww -n pax -c pax \; \
     neww -n fun1 \; \
     neww -n k9s \; send-keys 'k9s' \; \
+    neww -n port1 -t 97 \; send-keys 'kubectl -n hubble-system port-forward svc/mongo-service 27017' \; \
     neww -n cicd -t 98 \; send-keys 'export KUBECONFIG=~/.kube/kube-gke-spectro-cicd' C-m \; \
     neww -n vpn -t 99
 }
@@ -31,21 +32,17 @@ kctx() {
   )
 }
 
-knsresources() {
-  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n "${1:-default}"
-}
-
 klbip() {
   kubectl -n "$1" get svc "$2" -o jsonpath="{.status.loadBalancer.ingress[*]['ip', 'hostname']}"
-}
-
-kpatchfinalizer() {
-  kubectl -n "$1" patch --type merge -p '{"metadata":{"finalizers":[]}}' "$2"
 }
 
 # Spectro specific
 kconfig() {
   kubectl get secret $1-kubeconfig-backup -o json -o jsonpath="{['data']['\value']}" | base64 -d
+}
+
+knsresources() {
+  kubectl api-resources --verbs=list --namespaced -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found -n "${1:-default}"
 }
 
 kpclusterapi() {
@@ -56,10 +53,13 @@ kpclusterapi() {
   done
 }
 
+kpatchfinalizer() {
+  kubectl -n "$1" patch --type merge -p '{"metadata":{"finalizers":[]}}' "$2"
+}
+
+
 export -f kpclusterapi kpatchfinalizer kprint knsresources kctx
 
 alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 
-alias clusterservice_lb="klbip hubble-system cluster-service"
-alias ui_lb="klbip hubble-system spectro-ui"
-alias ui_kill="kubectl -n hubble-system delete pod -l app=ui"
+alias svpn='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
