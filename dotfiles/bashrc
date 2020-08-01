@@ -105,7 +105,8 @@ listening() {
 }
 
 # Pretty PS1
-PS1='[\u@\h \W$(kube_ps2)$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\$ '
+#PS1='[\u@\h \W$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\$ '
+PS1='\n[\u@\h \W$(kube_ps2)$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\n$ '
 
 #export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
