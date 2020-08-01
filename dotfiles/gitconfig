@@ -8,7 +8,7 @@
   ui = true
 [user]
   name = Saad Malik
-  email = simfox3@gmail.com
+  email = saad@spectrocloud.com
 [push]
   default = upstream
 [merge]
@@ -17,4 +17,6 @@
 [mergetool "mymeld"]
   cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
 [rerere]
-	enabled = true
+  enabled = true
+#[url "git@github.com:"]
+# insteadOf = https://github.com/
