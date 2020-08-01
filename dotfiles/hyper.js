@@ -4,8 +4,8 @@
 
 module.exports = {
   config: {
-    // Temporary
-    webGLRenderer: false,
+    // No longer needed GPU grab!
+    // webGLRenderer: false,
 
     modifierKeys: { altIsMeta: true },
 
@@ -54,7 +54,7 @@ module.exports = {
 
     // custom padding (css format, i.e.: `top right bottom left`)
     // padding: '5px 0 5px',
-    padding: '5px 0 0',
+    padding: '5px 0 0px',
 
     // including the 6 x 6 color cubes and the grayscale map, just provide
     // an array here instead of a color map object
@@ -101,7 +101,7 @@ module.exports = {
     env: {},
 
     // set to false for no bell
-    bell: 'SOUND',
+    bell: false,
 
     // if true, selected text will automatically be copied to the clipboard
     copyOnSelect: false
