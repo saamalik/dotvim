@@ -62,4 +62,4 @@ export -f kpclusterapi kpatchfinalizer kprint knsresources kctx
 
 alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 
-alias svpn='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
+alias svpn='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --script "$HOME/Documents/vpn/no_resolverupdate.sh" --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
