@@ -15,7 +15,8 @@ stmux() {
     neww -n k9s \; send-keys 'k9s' \; \
     neww -n port1 -t 97 \; send-keys 'kubectl -n hubble-system port-forward svc/mongo-service 27017' \; \
     neww -n cicd -t 98 \; send-keys 'export KUBECONFIG=~/.kube/kube-gke-spectro-cicd' C-m \; \
-    neww -n vpn -t 99
+    neww -n vpn -t 99 \; \
+    bind-key I send-keys 'nsenter -t 1 -m -u -n -i bash'
 }
 
 # Generic
@@ -30,6 +31,15 @@ kctx() {
     KUBE=$(ls kube-* | fzf)
     [[ -n "$KUBE" ]] && ln -sf "$KUBE" config
   )
+}
+
+klctx() {
+    # shellcheck disable=SC1083
+    local SEARCH="${1:-$HOME/Downloads}"
+    local KUBE=$(ls "$SEARCH" -p -t | grep -v / | fzf)
+    if [[ -n "$KUBE" ]]; then
+      export KUBECONFIG="${SEARCH%/}/$KUBE"
+    fi
 }
 
 klbip() {
@@ -58,7 +68,7 @@ kpatchfinalizer() {
 }
 
 
-export -f kpclusterapi kpatchfinalizer kprint knsresources kctx
+export -f kpclusterapi kpatchfinalizer kprint knsresources kctx klctx
 
 alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 

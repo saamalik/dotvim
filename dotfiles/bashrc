@@ -61,12 +61,6 @@ docker_id() {
 
 alias did=docker_id
 
-de() {
-   container_id=$(docker_id "$1")
-   c=${2:-"bash -l"}
-   docker exec -it -u root "$container_id" $c
-}
-
 stack_ps2() {
   [[ "${#DIRSTACK[@]}" -le 1 ]] && return
 
