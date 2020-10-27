@@ -67,6 +67,18 @@ kpatchfinalizer() {
   kubectl -n "$1" patch --type merge -p '{"metadata":{"finalizers":[]}}' "$2"
 }
 
+kproxy() {
+  [[ -z "$1" ]] && { echo "Specify name"; return 1; }
+  [[ -z "$KUBECONFIG" ]] && { echo "KUBECONFIG need to be defined"; return 1; }
+
+  sed -i -E \
+    -e "s/certificate-authority-data.*/#&\\
+    insecure-skip-tls-verify: true/" \
+    -e "s/server:.*/#&\\
+    server: https:\/\/$1.proxy.app.picard.spectrocloud.com:6443/" \
+    "$KUBECONFIG"
+}
+
 
 export -f kpclusterapi kpatchfinalizer kprint knsresources kctx klctx
 
