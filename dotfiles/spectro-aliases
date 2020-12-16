@@ -5,14 +5,9 @@ stmux() {
   tmux attach-session -t spectro ||
   tmux \
     new -s spectro -n shell \; \
-    neww -n optic -c optic \; \
-    neww -n hubble -c hubble \; \
-    neww -n jet -c jet \; \
-    neww -n blare -c blare \; \
-    neww -n swiss -c swissarmy \; \
-    neww -n pax -c pax \; \
-    neww -n fun1 \; \
-    neww -n k9s \; send-keys 'k9s' \; \
+    neww -n blare -t 94 -c blare \; \
+    neww -n pax -t 95 -c pax \; \
+    neww -n swiss -t 96 -c swissarmy \; \
     neww -n port1 -t 97 \; send-keys 'kubectl -n hubble-system port-forward svc/mongo 27017' \; \
     neww -n cicd -t 98 \; send-keys 'export KUBECONFIG=~/.kube/kube-gke-spectro-cicd' C-m \; \
     neww -n vpn -t 99 \; \

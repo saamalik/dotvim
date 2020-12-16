@@ -30,6 +30,7 @@ call minpac#add('digitaltoad/vim-jade')
 call minpac#add('derekwyatt/vim-scala')
 call minpac#add('leafgarland/typescript-vim')
 call minpac#add('tomlion/vim-solidity')
+call minpac#add('hashivim/vim-terraform')
 " call minpac#add('chriskempson/vim-tomorrow-theme')
 " Plug 'morhetz/gruvbox'
 " Plug 'KeitaNakamura/neodark.vim'
