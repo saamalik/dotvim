@@ -98,6 +98,8 @@ listening() {
     fi
 }
 
+export GPG_TTY=$(tty)
+
 # Pretty PS1
 #PS1='[\u@\h \W$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\$ '
 PS1='\n[\u@\h \W$(kube_ps2)$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\n$ '

@@ -9,6 +9,7 @@
 [user]
   name = Saad Malik
   email = saad@spectrocloud.com
+  signingKey = E58D4DD46A73C57C
 [push]
   default = upstream
 [merge]
@@ -18,5 +19,11 @@
   cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
 [rerere]
   enabled = true
-#[url "git@github.com:"]
-# insteadOf = https://github.com/
+[commit]
+  gpgSign = true
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main

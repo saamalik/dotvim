@@ -3,6 +3,7 @@ let maplocalleader = ";"
 
 " *** VIM ***
 nnoremap Y y$
+nnoremap gp `[v`]
 
 nnoremap <Down> <C-E>
 nnoremap <Up> <C-Y>
