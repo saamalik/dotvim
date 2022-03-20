@@ -3,12 +3,13 @@
 # Tmux already has this loaded
 export GOPATH="$HOME/go"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export PATH="$HOME/bin:$GOPATH/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.pyenv/shims:$HOME/.krew/bin:$GOPATH/bin:$HOME/.cargo/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/curl/bin:$PATH"
 
 export VISUAL="nvim"
 export EDITOR="nvim"
 export MAVEN_OPTS="-Xmx4096m -DskipTests=true"
 export RERUN_MODULES="$HOME/projects/rerun_modules"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Source bashrc
 # shellcheck disable=SC1090

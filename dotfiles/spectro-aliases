@@ -71,7 +71,7 @@ kproxy() {
     -e "s/certificate-authority-data.*/#&\\
     insecure-skip-tls-verify: true/" \
     -e "s/server:.*/#&\\
-    server: https:\/\/$1.proxy.app.picard.spectrocloud.com:6443/" \
+    server: https:\/\/$1.proxy.spectrocloud.com:6443/" \
     "$KUBECONFIG"
 }
 
