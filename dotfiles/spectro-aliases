@@ -75,6 +75,18 @@ kproxy() {
     "$KUBECONFIG"
 }
 
+kproxydev() {
+  [[ -z "$1" ]] && { echo "Specify name"; return 1; }
+  [[ -z "$KUBECONFIG" ]] && { echo "KUBECONFIG need to be defined"; return 1; }
+
+  sed -i -E \
+    -e "s/certificate-authority-data.*/#&\\
+    insecure-skip-tls-verify: true/" \
+    -e "s/server:.*/#&\\
+    server: https:\/\/cluster-$1.proxy.dev.spectrocloud.com:443/" \
+    "$KUBECONFIG"
+}
+
 
 export -f kpclusterapi kpatchfinalizer kprint knsresources kctx klctx
 
