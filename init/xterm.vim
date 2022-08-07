@@ -14,4 +14,5 @@ let &t_EI="\e[1 q"
 set <F13>=J
 set <S-F13>=K
 
-highlight! Comment cterm=underline
+" comments are in italic / underline?
+highlight! Comment cterm=italic
