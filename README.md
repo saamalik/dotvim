@@ -21,7 +21,6 @@ $ Start nvim and run _:PlugInstall_
 
 MinTTY looks prettier with the CONSOLA font, in the windows fonts directory. Install it and restart mintty.
 
-
 ## Inspired by
 - https://github.com/fsproru/vimfiles
 - https://github.com/Wolfy87/vim-config
