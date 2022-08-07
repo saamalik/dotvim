@@ -1,0 +1,46 @@
+eval "$(starship init zsh)"
+
+# Force emacs style keyboard style
+bindkey -e
+
+# Switching directories for lazy people
+setopt autocd
+
+# Add directory to directory stack
+setopt autopushd pushdminus pushdignoredups
+alias dh='dirs -v'
+
+# See: http://zsh.sourceforge.net/Intro/intro_2.html
+setopt extendedglob
+
+# Try to make the completion list smaller (occupying less lines) by printing
+# the matches in columns with different widths
+setopt listpacked
+
+# Automatically use menu completion after the second consecutive request for
+# completion (this is no longer needed, as it's the default)
+#setopt automenu
+
+# Initialize command compleition
+autoload -Uz compinit && compinit
+# search case insensitive, if no matches
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Za-z}'
+
+# ^Xa to insert all matches
+zle -C all-matches complete-word _generic
+bindkey '^Xa' all-matches
+zstyle ':completion:all-matches:*' old-matches only
+zstyle ':completion:all-matches::::' completer _all_matches
+
+eval $(dircolors)
+
+# Aliases
+alias ls='ls --color=auto --group-directories-first'
+alias dir="dir --color=auto"
+alias grep="grep --color=auto"
+alias dmesg='dmesg --color'
+alias mvn="mvn -T 1C"
+alias cb="xclip -selection clipboard"
+
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
