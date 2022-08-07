@@ -42,5 +42,5 @@ alias dmesg='dmesg --color'
 alias mvn="mvn -T 1C"
 alias cb="xclip -selection clipboard"
 
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f ~/.rc.local ]] && source ~/.rc.local
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
