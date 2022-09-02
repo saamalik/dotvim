@@ -88,6 +88,11 @@ kproxydev() {
     "$KUBECONFIG"
 }
 
+klimits() {
+  # kubectl run hello1 -n team-a --image=nginx $(klimits hello1)
+  echo --overrides='{"spec":{"containers":[{"name":"'$1'","resources":{"limits":{"cpu":"500m","memory":"100Mi"}}}]}}' --override-type strategic
+}
+
 
 
 #export -f kpclusterapi kpatchfinalizer kprint knsresources kctx klctx

@@ -8,5 +8,5 @@
 set background=dark
 
 " Fix highlighting issues
-highlight StatusLine cterm=inverse
-highlight SpellBad ctermbg=9 ctermfg=15
+" highlight StatusLine cterm=inverse
+" highlight SpellBad ctermbg=9 ctermfg=15
