@@ -44,6 +44,7 @@ call minpac#add('jiangmiao/auto-pairs')
 call minpac#add('airblade/vim-gitgutter')
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('github/copilot.vim')
 call minpac#add('mhinz/vim-startify')
 call minpac#add('neomake/neomake')
 call minpac#add('tpope/vim-surround')
