@@ -56,7 +56,7 @@ call minpac#add('vim-airline/vim-airline-themes')
 " Load everything
 packloadall
 
-set runtimepath+=/usr/local/opt/fzf
+set runtimepath+=/opt/homebrew/opt/fzf
 
 " nmap <leader><tab> <plug>(fzf-maps-n)
 " xmap <leader><tab> <plug>(fzf-maps-x)
