@@ -1,3 +1,4 @@
+#!/bin/zsh
 [ -f ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases ] && source ~/projects/k8s-projects/kubectl-aliases/.kubectl_aliases
 
 
@@ -99,7 +100,7 @@ klimits() {
 
 alias awsclean="$HOME/projects/spectro/palette/awsclean.sh"
 
-return 1
+alias vvpn='echo "$VVPNPASSWD" | sudo openconnect 75.30.146.145 --user "$VVPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
 
-alias svpnresolver='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
-alias svpn='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --script "$HOME/Documents/vpn/no_resolverupdate.sh" --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
+alias svpn='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
+alias svpnnoresolver='echo "$VPNPASSWD" | sudo openconnect vpn.spectrocloud.com --script "$HOME/Documents/vpn/no_resolverupdate.sh" --user "$VPNUSER" --passwd-on-stdin --servercert "$SERVERPIN"'
