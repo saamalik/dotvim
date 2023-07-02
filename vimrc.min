@@ -1,5 +1,19 @@
 " Start Vim with '-u {scriptfile}' option like 'vim -u ~/.vimrc.min'
 set nocompatible
 " Add vim-gita repository to the runtimepath
-set runtimepath+=~/.vim/plugged/vim-airline
-set runtimepath+=~/.vim/plugged/neomake
+"set runtimepath+=~/.vim/plugged/vim-airline
+"set runtimepath+=~/.vim/plugged/neomake
+"
+packadd minpac
+
+call minpac#init()
+
+" minpac must have {'type': 'opt'} so that it can be loaded with `packadd`.
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+" call minpac#add('zbirenbaum/copilot.lua')
+call minpac#add('github/copilot.vim')
+
+" Load everything
+packloadall
+
+set runtimepath+=/opt/homebrew/opt/fzf

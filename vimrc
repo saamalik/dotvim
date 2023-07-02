@@ -36,23 +36,22 @@ call minpac#add('hashivim/vim-terraform')
 " Plug 'KeitaNakamura/neodark.vim'
 
 " General
-call minpac#add('jiangmiao/auto-pairs')
+call minpac#add('airblade/vim-gitgutter')
+call minpac#add('junegunn/fzf.vim')
+" call minpac#add('github/copilot.vim')
+call minpac#add('mhinz/vim-startify')
+call minpac#add('neomake/neomake')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('vim-airline/vim-airline')
+call minpac#add('vim-airline/vim-airline-themes')
+
+" disabled
+" call minpac#add('mattn/emmet-vim')
+" call minpac#add('tpope/vim-surround')
 " Plug 'Valloric/ListToggle'
 " Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 " Plug 'lambdalisue/vim-gita', {'on': ['Gita']}
-"
-call minpac#add('airblade/vim-gitgutter')
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('github/copilot.vim')
-call minpac#add('mhinz/vim-startify')
-call minpac#add('neomake/neomake')
-call minpac#add('tpope/vim-surround')
-call minpac#add('tpope/vim-commentary')
-call minpac#add('tpope/vim-unimpaired')
-call minpac#add('mattn/emmet-vim')
-call minpac#add('vim-airline/vim-airline')
-call minpac#add('vim-airline/vim-airline-themes')
 
 " Load everything
 packloadall
