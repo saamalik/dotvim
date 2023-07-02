@@ -235,7 +235,7 @@ colors:
     red:     '#e54b4b'
     green:   '#9ece58'
     yellow:  '#faed70'
-    blue:    '#396fe2'
+    blue:    '#79afe2'
     magenta: '#bb80b3'
     cyan:    '#2ddafd'
     white:   '#d0d0d0'
@@ -381,7 +381,7 @@ shell:
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-#working_directory: None
+working_directory: projects/spectro
 
 # WinPTY backend (Windows only)
 #

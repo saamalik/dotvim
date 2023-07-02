@@ -109,3 +109,5 @@ PS1='\n[\u@\h \W$(kube_ps2)$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\n$ '
 
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

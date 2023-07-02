@@ -15,3 +15,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # shellcheck disable=SC1090
 source "$HOME/.bashrc"
 
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
