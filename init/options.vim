@@ -41,7 +41,7 @@ if &term =~ '^screen'
 endif
 
 " Text Formatting/Layout
-set formatoptions=tcrqn      " See Help (complex)
+set formatoptions=tcqn      " See Help (complex)
 set autoindent    " autoindent
 set smartindent   " smartindent
 set smarttab      " Use shiftwidth to tab at line beginning
