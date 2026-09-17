@@ -93,6 +93,13 @@ kpatchfinalizer() {  # kpatchfinalizer <namespace> <resource>: clear finalizers
 if (( BASH_VERSINFO[0] >= 4 )) && [[ -r ${HOMEBREW_PREFIX:-/opt/homebrew}/etc/profile.d/bash_completion.sh ]]; then
   . "${HOMEBREW_PREFIX:-/opt/homebrew}/etc/profile.d/bash_completion.sh"
 fi
+# Apple's git keeps its completion outside bash-completion's search path
+if [[ $(type -P git) == /usr/bin/git ]]; then
+  for f in /Library/Developer/CommandLineTools /Applications/Xcode.app/Contents/Developer; do
+    [[ -r $f/usr/share/git-core/git-completion.bash ]] && { . "$f/usr/share/git-core/git-completion.bash"; break; }
+  done
+  unset f
+fi
 command -v fzf >/dev/null && eval "$(fzf --bash)"
 
 # Prompt
