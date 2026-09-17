@@ -1,29 +1,42 @@
-[core]
-  whitespace = cr-at-eol
-  editor = vim
-  autocrlf = input
-  ignorecase = false
-  pager = less -x1,5
-[color]
-  ui = true
 [user]
   name = Saad Malik
   email = saad@spectrocloud.com
   signingKey = E58D4DD46A73C57C
-[push]
-  default = upstream
+[core]
+  whitespace = cr-at-eol
+  autocrlf = input
+  ignorecase = false
+  pager = less -x1,5
+[init]
+  defaultBranch = main
+[column]
+  ui = auto
+[branch]
+  sort = -committerdate
+[diff]
+  algorithm = histogram
 [merge]
-  conflictstyle = diff3
-  tool = mymeld
-[mergetool "mymeld"]
-  cmd = meld --auto-merge --output $MERGED $LOCAL $BASE $REMOTE --diff $BASE $LOCAL --diff $BASE $REMOTE
+  conflictstyle = zdiff3
+[pull]
+  rebase = false
+[push]
+  default = simple
+  autoSetupRemote = true
+[fetch]
+  prune = true
+[rebase]
+  autoStash = true
+  updateRefs = true
 [rerere]
   enabled = true
+  autoupdate = true
 [commit]
   gpgSign = true
+  verbose = true
+[help]
+  autocorrect = prompt
 [url "git@github.com:"]
   insteadOf = https://github.com/
-[pull]
-	rebase = false
-[init]
-	defaultBranch = main
+# Machine-specific overrides (another identity, signing setup, ...) stay out of git
+[include]
+  path = ~/.gitconfig.local

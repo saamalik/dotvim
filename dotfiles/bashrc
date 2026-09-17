@@ -1,113 +1,106 @@
-#
 # ~/.bashrc
-#
+# .bash_profile sources this too, so this is the whole shell config.
 
-if [[ -f ~/.dircolors ]] ; then
-  eval $(dircolors -b ~/.dircolors)
-elif [[ -f /etc/DIR_COLORS ]] ; then eval $(dircolors -b /etc/DIR_COLORS)
+# Homebrew first on PATH. Doing it here rather than only in a login file also
+# undoes the PATH reordering macOS path_helper does inside tmux.
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# If not running interactively, don't do anything
+export EDITOR=nvim
+export VISUAL=nvim
+export GOPATH="$HOME/go"
+export PATH="$HOME/bin:$GOPATH/bin:$HOME/.krew/bin:$HOME/.cargo/bin:$PATH"
+if [[ -d $HOME/.volta ]]; then
+  export VOLTA_HOME="$HOME/.volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
+fi
+
+# Everything below is for interactive shells only
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto --group-directories-first'
-alias dir="dir --color=auto"
-alias grep="grep --color=auto"
-alias dmesg='dmesg --color'
-alias mvn="mvn -T 1C"
-alias cb="xclip -selection clipboard"
+shopt -s checkwinsize histappend
+shopt -s autocd 2>/dev/null
+HISTSIZE=50000
+HISTFILESIZE=100000
+HISTCONTROL=ignoreboth
 
-#alias stmux="tmux new -A -s spectro"
+stty -ixon     # free <C-s>/<C-q> for vim
+stty -echoctl  # don't echo ^C
+GPG_TTY=$(tty) && export GPG_TTY
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+# GNU ls (brew install coreutils on macOS) groups directories first; BSD ls just gets colour
+if command -v gls >/dev/null; then
+  alias ls='gls --color=auto --group-directories-first'
+elif ls --version >/dev/null 2>&1; then
+  alias ls='ls --color=auto --group-directories-first'
+else
+  export CLICOLOR=1
+fi
+alias grep='grep --color=auto'
+alias cb='pbcopy'
+alias did='docker_id'
 
 # cd and ls in one
 cl() {
-  dir=$1
-  if [[ -z "$dir" ]]; then
-    dir=$HOME
-  fi
-  if [[ -d "$dir" ]]; then
-    cd "$dir"
-    ls
-  else
-    echo "bash: cl: '$dir': Directory not found"
-  fi
-}
-
-# Start off with a blinking cursor
-#echo -ne "\e[0 q"
-
-# Disable Flow-control so these keys are available for mapping C-S/C-Q
-stty -ixon
-
-# Don't show ^C character
-stty -echoctl
-
-r() {
-if [[ -n $TMUX ]]; then
-  NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
-  if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
-    SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
-  fi
-fi
+  cd "${1:-$HOME}" && ls
 }
 
 docker_id() {
   docker ps | grep "$1" | cut -f1 -d" "
 }
 
-alias did=docker_id
-
-stack_ps2() {
-  [[ "${#DIRSTACK[@]}" -le 1 ]] && return
-
-  echo -e "\e[0;31m *\e[0m"
-}
-
-aws_region_ps2() {
-  [[ -z "$AWS_DEFAULT_REGION" ]] && return
-
-  echo -e "\e[0;33m $AWS_DEFAULT_REGION\e[0m"
-}
-
-aws_profile_ps2() {
-  [[ -z "$AWS_PROFILE" ]] && return
-
-  echo -e "\e[0;32m $AWS_PROFILE\e[0m"
-}
-
-kube_ps2() {
-  [[ -z "$KUBECONFIG" ]] && return
-
-  local KUBE_CONTEXT
-  KUBE_CONTEXT="$(kubectl config current-context 2>/dev/null)"
-
-  echo -e "\e[0;33m $KUBE_CONTEXT\e[0m"
+# Refresh SSH_AUTH_SOCK after re-attaching to tmux
+r() {
+  [[ -n $TMUX ]] || return 0
+  local sock
+  sock=$(tmux showenv SSH_AUTH_SOCK 2>/dev/null | cut -d= -f2)
+  [[ -S $sock ]] && export SSH_AUTH_SOCK=$sock
 }
 
 listening() {
-    if [ $# -eq 0 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P
-    elif [ $# -eq 1 ]; then
-        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
-    else
-        echo "Usage: listening [pattern]"
-    fi
+  if [[ $# -eq 0 ]]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P
+  elif [[ $# -eq 1 ]]; then
+    sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color "$1"
+  else
+    echo "Usage: listening [pattern]"
+  fi
 }
 
-export GPG_TTY=$(tty)
+# kubernetes
+kctx() {  # point ~/.kube/config at one of ~/.kube/kube-*, picked with fzf
+  local kube
+  kube=$(cd ~/.kube && ls kube-* | fzf) && ln -sf "$kube" ~/.kube/config
+}
+klctx() {  # export KUBECONFIG from a file in ~/Downloads (or "$1"; "-" means ~/.kube)
+  local dir="${1:-$HOME/Downloads}" kube
+  [[ ${1:-} == "-" ]] && dir="$HOME/.kube"
+  kube=$(ls -pt "$dir" | grep -v / | fzf) && export KUBECONFIG="${dir%/}/$kube"
+}
+klbip() {  # klbip <namespace> <service>: load balancer address
+  kubectl -n "$1" get svc "$2" -o jsonpath="{.status.loadBalancer.ingress[*]['ip', 'hostname']}"
+}
+knsresources() {  # every namespaced resource in a namespace
+  kubectl api-resources --verbs=list --namespaced -o name \
+    | xargs -n 1 kubectl get --show-kind --ignore-not-found -n "${1:-default}"
+}
+kpatchfinalizer() {  # kpatchfinalizer <namespace> <resource>: clear finalizers
+  kubectl -n "$1" patch --type merge -p '{"metadata":{"finalizers":[]}}' "$2"
+}
 
-# Pretty PS1
-#PS1='[\u@\h \W$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\$ '
-PS1='\n[\u@\h \W$(kube_ps2)$(aws_profile_ps2)$(aws_region_ps2)$(stack_ps2)]\n$ '
+# Completion (brew install bash bash-completion@2) and fzf keys: <C-r> <C-t> **<Tab>
+if (( BASH_VERSINFO[0] >= 4 )) && [[ -r ${HOMEBREW_PREFIX:-/opt/homebrew}/etc/profile.d/bash_completion.sh ]]; then
+  . "${HOMEBREW_PREFIX:-/opt/homebrew}/etc/profile.d/bash_completion.sh"
+fi
+command -v fzf >/dev/null && eval "$(fzf --bash)"
 
-#export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# Prompt
+if command -v starship >/dev/null; then
+  eval "$(starship init bash)"
+else
+  PS1='\n[\u@\h \W]\n\$ '
+fi
 
-[ -f ~/.bashrc.local ] && source ~/.bashrc.local
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# Machine or work specific things live outside the repo
+[[ -f ~/.bashrc.local ]] && source ~/.bashrc.local
