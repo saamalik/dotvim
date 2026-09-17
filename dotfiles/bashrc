@@ -10,7 +10,7 @@ fi
 export EDITOR=nvim
 export VISUAL=nvim
 export GOPATH="$HOME/go"
-export PATH="$HOME/bin:$GOPATH/bin:$HOME/.krew/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.krew/bin:$HOME/.cargo/bin:$PATH"
 if [[ -d $HOME/.volta ]]; then
   export VOLTA_HOME="$HOME/.volta"
   export PATH="$VOLTA_HOME/bin:$PATH"
