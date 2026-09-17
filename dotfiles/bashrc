@@ -69,9 +69,9 @@ listening() {
 }
 
 # kubernetes
-kctx() {  # point ~/.kube/config at one of ~/.kube/kube-*, picked with fzf
+kctx() {  # point ~/.kube/config at one of ~/.kube/{kube-*,*.kubeconfig}, picked with fzf
   local kube
-  kube=$(cd ~/.kube && ls kube-* | fzf) && ln -sf "$kube" ~/.kube/config
+  kube=$(cd ~/.kube && command ls kube-* *.kubeconfig 2>/dev/null | fzf) && ln -sf "$kube" ~/.kube/config
 }
 klctx() {  # export KUBECONFIG from a file in ~/Downloads (or "$1"; "-" means ~/.kube)
   local dir="${1:-$HOME/Downloads}" kube
