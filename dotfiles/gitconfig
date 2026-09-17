@@ -1,7 +1,6 @@
 [user]
   name = Saad Malik
   email = saad@spectrocloud.com
-  signingKey = E58D4DD46A73C57C
 [core]
   whitespace = cr-at-eol
   autocrlf = input
@@ -31,7 +30,6 @@
   enabled = true
   autoupdate = true
 [commit]
-  gpgSign = true
   verbose = true
 [help]
   autocorrect = prompt
