@@ -17,6 +17,14 @@ if !has('nvim')
   silent! packadd comment   " gc / gcc, bundled with Vim 9.1.0375+
 endif
 
+if has('nvim')
+  " No remote plugins here: skip the provider probes and their :checkhealth noise
+  let g:loaded_python3_provider = 0
+  let g:loaded_node_provider = 0
+  let g:loaded_perl_provider = 0
+  let g:loaded_ruby_provider = 0
+endif
+
 filetype plugin indent on
 syntax enable
 
