@@ -1,7 +1,0 @@
-set background=light
-colorscheme Tomorrow
-" set guioptions-=m " turn off menu bar
-set guioptions-=T " turn off toolbar
-" disable all beeps and sounds
-set visualbell t_vb=
-set lines=50 columns=150

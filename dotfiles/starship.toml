@@ -1,0 +1,5 @@
+# ~/.config/starship.toml
+# Show the kube context only while KUBECONFIG is set, like the old PS1 did.
+[kubernetes]
+disabled = false
+detect_env_vars = ["KUBECONFIG"]

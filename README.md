@@ -1,26 +1,28 @@
-## Installation
+# dotvim
 
-[![Join the chat at https://gitter.im/saamalik-dotvim/Lobby](https://badges.gitter.im/saamalik-dotvim/Lobby.svg)](https://gitter.im/saamalik-dotvim/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Neovim, Vim, bash, tmux and git config for macOS. Neovim first; plain Vim 9 works too.
 
-*RO*:  
-git clone https://github.com/saamalik/dotvim.git ~/.vim
+## Install
 
-*RW*:  
+```
 git clone git@github.com:saamalik/dotvim.git ~/.vim
-
-*Install*:
-```
-$ ln -s ~/.vim ~/.config/nvim
-$ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-$ Start nvim and run _:PlugInstall_
+~/.vim/install.sh
+brew bundle --file=~/.vim/Brewfile
 ```
 
-*Fix C-H on Mac/NeoVim*
-[NeoVIM C-H Fix](https://github.com/neovim/neovim/wiki/FAQ#my-ctrl-h-mapping-doesnt-work)
+To make Homebrew's bash the login shell:
 
-MinTTY looks prettier with the CONSOLA font, in the windows fonts directory. Install it and restart mintty.
+```
+echo /opt/homebrew/bin/bash | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/bash
+```
 
-## Inspired by
-- https://github.com/fsproru/vimfiles
-- https://github.com/Wolfy87/vim-config
+## Layout
+
+- `vimrc`: the whole editor config. `init.vim` symlinks to it for Neovim.
+- `ftplugin/`: per-filetype overrides.
+- `dotfiles/`: bashrc, bash_profile, inputrc, gitconfig, tmux.conf, starship.toml.
+- `install.sh`: symlinks everything into `$HOME`, installs and updates plugins. Re-run to update.
+- `pack/plugins/start/`: the plugins (fzf.vim, vim-gitgutter). Git-ignored.
+
+Machine or work specific shell bits go in `~/.bashrc.local` and git overrides in `~/.gitconfig.local`. Both are picked up when present and are not tracked here.

@@ -1,8 +1,6 @@
-.netrwhist
 .DS_Store
+.netrwhist
 tags
 /pack
-/session
-/plugged
-/autoload/plug.vim
-/autoload/plug.vim.old
+/undo
+/spell/*.spl
