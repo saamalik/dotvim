@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Symlink the config into $HOME and install or update the Vim plugins.
-# Safe to re-run. Expects the repo at ~/.vim (see README).
+# Safe to re-run. Works from wherever the repo is checked out; ~/.vim is symlinked to it.
 set -euo pipefail
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
